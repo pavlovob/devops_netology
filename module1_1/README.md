@@ -4,7 +4,7 @@
 
 1. Установлена IDE PyCharm
 2. Установлены требуемые плагины для работы:
-   - Terraform: (img/tf.png)
+   - Terraform: ![tt](img/tf.png)
     - Bash: (img/sh.png)
     - Markdown: (img/md.png)
     - Yaml: (img/yaml.png)
