@@ -5,10 +5,10 @@
 1. Установлена IDE PyCharm
 2. Установлены требуемые плагины для работы:
    - Terraform: ![tt](img/tf.png)
-    - Bash: (img/sh.png)
-    - Markdown: (img/md.png)
-    - Yaml: (img/yaml.png)
-    - Jsonnet: (img/jsonnet.png)
+    - Bash: ![bs](img/sh.png)
+    - Markdown: ![md](img/md.png)
+    - Yaml: ![ym](img/yaml.png)
+    - Jsonnet: ![jn](img/jsonnet.png)
 1. Добавьте свое имя в каждый файл, сделайте снимок экран и загрузите его на любой сервис обмена картинками.
 1. Ссылки на картинки укажите в личном кабинете как решение домашнего задания. 
 
