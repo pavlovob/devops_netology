@@ -1,5 +1,5 @@
 ### Ответы на вопросы к занятию «2.4. Инструменты Git»
-1. Полный хэш коммита: aefead2207ef7e2aa5dc81a34aedf0cad4c32545 
+1. Полный хэш коммита: aefead2207ef7e2aa5dc81a34aedf0cad4c32545  
    Комменатрий коммта: Update CHANGELOG.md 
    Автор: Alisdair McDiarmid <alisdair@users.noreply.github.com> 
 2. Коммит 85024d3 соответствует тегу v0.12.23 
