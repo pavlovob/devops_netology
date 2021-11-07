@@ -4,7 +4,7 @@
    Автор: Alisdair McDiarmid <alisdair@users.noreply.github.com>
 2. Коммит 85024d3 соответствует тегу v0.12.23
 3. У коммита с хэшем b8d720 есть 2 родителя (Merge) c хэшами 56cd7859e и 9ea88f22f
-4. Хэши и комментари между тэгами v0.12.23 и v0.12.24:
+4. Хэши и комментари между тэгами v0.12.23 и v0.12.24:.
 b14b74c4939dcab573326f4e3ee2a62e23e12f89 [Website] vmc provider links.
 3f235065b9347a758efadc92295b540ee0a5e26e Update CHANGELOG.md.
 6ae64e247b332925b872447e9ce869657281c2bf registry: Fix panic when server is unreachable.
