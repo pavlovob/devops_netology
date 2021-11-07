@@ -23,8 +23,7 @@
    завершение создания функции в коммите  - 5af1e6234ab6da412fb8637393c5a17a1b293663  
    git grep - 'func providerSource'  
    git log -L:'func providerSource':provider_source.go  
-   
-7. Коммиты в которых была изменена функция globalPluginDirs:  
+6. Коммиты в которых была изменена функция globalPluginDirs:  
    78b12205587fe839f10d946ea3fdc06719decb05  
    52dbf94834cb970b510f2fba853a5b49ad9b1a46  
    41ab0aef7a0fe030e84018973a64135b11abcd70  
