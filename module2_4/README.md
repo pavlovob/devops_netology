@@ -29,7 +29,7 @@
    52dbf94834cb970b510f2fba853a5b49ad9b1a46  
    41ab0aef7a0fe030e84018973a64135b11abcd70  
    66ebff90cdfaa6938f26f908c7ebad8d547fea17  
-   8364383c359a6b738a436d1b7745ccdce178df47 - первое создание функции globalPluginDirs 
-   git grep -p 'globalPluginDirs'
-   git log -L:globalPluginDirs:plugins.go
+   8364383c359a6b738a436d1b7745ccdce178df47 - первое создание функции globalPluginDirs  
+   git grep -p 'globalPluginDirs'  
+   git log -L:globalPluginDirs:plugins.go  
 
