@@ -31,4 +31,6 @@
    8364383c359a6b738a436d1b7745ccdce178df47 - первое создание функции globalPluginDirs  
    git grep -p 'globalPluginDirs'  
    git log -L:globalPluginDirs:plugins.go  
-
+7. Автор функции: Author: Martin Atkins <mart@degeneration.co.uk>  
+   git log -S'synchronizedWriters'  
+   git show 5ac311e2a91e381e2f52234668b49ba670aa0fe5  
