@@ -5,9 +5,9 @@
    git show aefea
 2. Коммит 85024d3 соответствует тегу v0.12.23. 
    git show 85024d3
-3. У коммита с хэшем b8d720 есть 2 родителя (Merge) c хэшами 56cd7859e и 9ea88f22f. 
-    git show b8d720 или
-    git log -1 b8d720    
+3. У коммита с хэшем b8d720 есть 2 родителя (Merge) c хэшами 56cd7859e и 9ea88f22f.  
+    git show b8d720 или. 
+    git log -1 b8d720. 
 4. Хэши и комментари между тэгами v0.12.23 и v0.12.24:  
    b14b74c4939dcab573326f4e3ee2a62e23e12f89 [Website] vmc provider links  
    3f235065b9347a758efadc92295b540ee0a5e26e Update CHANGELOG.md  
