@@ -29,10 +29,10 @@ end
     Создать 300000 файлов аналогичным способом не получится из-за ограничения длины списка аргументов. 
 11. Конструкция [[ -d /tmp ]] проверяет существование директори, возвращает результат 0 - истина 1 - ошибка
 12. Последовательность команд для изменения %PATH по заданию:  
-vagrant@ubuntu-focal:~$ mkdir /tmp/new_path_dir/  
-vagrant@ubuntu-focal:~$ cp /bin/bash /tmp/new_path_dir/  
-vagrant@ubuntu-focal:~$ PATH=/tmp/new_path_dir/:$PATH  
-vagrant@ubuntu-focal:~$ type -a bash  
+vagrant@ubuntu-focal:\~$ mkdir /tmp/new_path_dir/  
+vagrant@ubuntu-focal:\~$ cp /bin/bash /tmp/new_path_dir/  
+vagrant@ubuntu-focal:\~$ PATH=/tmp/new_path_dir/:$PATH  
+vagrant@ubuntu-focal:\~$ type -a bash  
 bash is /tmp/new_path_dir/bash  
 bash is /usr/bin/bash  
 bash is /bin/bash  
