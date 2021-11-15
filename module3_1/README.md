@@ -36,3 +36,5 @@ vagrant@ubuntu-focal:~$ type -a bash
 bash is /tmp/new_path_dir/bash  
 bash is /usr/bin/bash  
 bash is /bin/bash  
+13. Обе команды используются для отложенного запука задач. at - для запуска задачи в указанное время, batch - для запуска задач когда позволяет нагрузка на систему (задается). 
+14. Выполнено. sudo poweroff (из гостево ОС), vagrant halt - из домашней ОС.  
