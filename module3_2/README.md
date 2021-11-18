@@ -22,6 +22,9 @@ grep -с <some_string> <some_file>
 ~~~
 ls -l /bin/usr 2> /dev/pts/1
 ~~~
+каталог /bin/usr естественно, не существует.
+
+
 
 
 
