@@ -1,7 +1,7 @@
-Установка 
+Домашнее задание к модулю 3_1 
 ------------
 
-### Install via Composer
+### In
 
 If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
 at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
