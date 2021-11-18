@@ -33,7 +33,14 @@ total 0
 -rw-rw-r-- 1 user user 0 ноя 18 11:57 file1
 ~~~
 сформировали файл, указали вход и выход, посмотрели что получилось.
-
+### 6.
+Недостаточно прав:
+~~~
+user@wbn04pavlov:~/tmp$ ls -l >/dev/tty3
+bash: /dev/tty3: Permission denied
+user@wbn04pavlov:~/tmp$ sudo ls -l >/dev/tty3
+bash: /dev/tty3: Permission denied
+~~~
 
 
 
