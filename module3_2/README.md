@@ -23,7 +23,16 @@ grep -с <some_string> <some_file>
 ls -l /bin/usr 2> /dev/pts/1
 ~~~
 каталог /bin/usr естественно, не существует.
-
+### 5.
+Думаю такое возможно. Что с ходу пришло в голову:
+~~~
+user@wbn04pavlov:~/tmp$ ls -l > file1
+user@wbn04pavlov:~/tmp$ cat <file1 1>file2
+user@wbn04pavlov:~/tmp$ cat file2
+total 0
+-rw-rw-r-- 1 user user 0 ноя 18 11:57 file1
+~~~
+сформировали файл, указали вход и выход, посмотрели что получилось.
 
 
 
