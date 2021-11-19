@@ -59,9 +59,19 @@ Permission denied выдается и на standalone ubuntu 20.04, ssh сесс
 user@wbn04pavlov:~$ ls -l /usr/bin1 7>&2 2>&1 1>&7 |grep no -c
 1
 ~~~
-Каталог /usr/bin1 заведомо несуществует, команда вернет ls: cannot access '/usr/bin1': No such file or directory
+Каталог /usr/bin1 заведомо несуществует, команда вернет ls: cannot access '/usr/bin1': No such file or directory  
+При этом стандартный вывод будет рабоать.
 ### Задание 9.
-
+Команда 
+~~~
+cat /proc/$$/environ
+~~~
+Выведет все переменные окружения для текущей сессии командного интерпретатора.
+Аналогичный по содержанию вывод можно молучить командами
+~~~
+env
+printenv
+~~~
 ### Задание 10.
 ### Задание 11.
 ### Задание 12.
