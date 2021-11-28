@@ -32,13 +32,35 @@ lsof -p 67599
 # Задание 4
 Зомби процессы завершаются полностью, оставляя после себя только запись в таблице процессов.
 # Задание 5
-4. В iovisor BCC есть утилита `opensnoop`:
-    ```bash
-    root@vagrant:~# dpkg -L bpfcc-tools | grep sbin/opensnoop
-    /usr/sbin/opensnoop-bpfcc
-    ```
-    На какие файлы вы увидели вызовы группы `open` за первую секунду работы утилиты? Воспользуйтесь пакетом `bpfcc-tools` для Ubuntu 20.04. Дополнительные [сведения по установке](https://github.com/iovisor/bcc/blob/master/INSTALL.md).
+Вывод утилиты за 1 секунду работы (параметр -d 1):
+~~~
+vagrant@developer:~$ sudo /usr/sbin/opensnoop-bpfcc -d 1
+PID    COMM               FD ERR PATH
+864    vminfo              4   0 /var/run/utmp
+708    dbus-daemon        -1   2 /usr/local/share/dbus-1/system-services
+708    dbus-daemon        56   0 /usr/share/dbus-1/system-services
+708    dbus-daemon        -1   2 /lib/dbus-1/system-services
+708    dbus-daemon        56   0 /var/lib/snapd/dbus-1/system-services/
+4581   ThreadPoolSingl   245   0 /proc/6721/oom_score_adj
+4581   ThreadPoolForeg   245   0 /tmp/.com.google.Chrome.S8lYAB
+4581   ThreadPoolForeg   245   0 /tmp/.com.google.Chrome.S8lYAB
+~~~
 # Задание 6
+Команда `uname -a` использует вызов системной функции `uname`:  
+~~~
+close(3)                                = 0
+uname({sysname="Linux", nodename="developer", ...}) = 0
+fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}) = 0
+uname({sysname="Linux", nodename="developer", ...}) = 0
+uname({sysname="Linux", nodename="developer", ...}) = 0
+write(1, "Linux developer 5.4.0-90-generic"..., 109Linux developer 5.4.0-90-generic #101-Ubuntu SMP Fri Oct 15 20:00:55 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+) = 109
+close(1)                                = 0
+close(2)                                = 0
+exit_group(0)                           = ?
++++ exited with 0 +++
+vagrant@developer:~$ 
+~~~
 1. Какой системный вызов использует `uname -a`? Приведите цитату из man по этому системному вызову, где описывается альтернативное местоположение в `/proc`, где можно узнать версию ядра и релиз ОС.
 # Задание 7
 3. Чем отличается последовательность команд через `;` и через `&&` в bash? Например:
