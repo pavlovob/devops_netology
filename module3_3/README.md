@@ -96,5 +96,5 @@ R+
 S - interruptible sleep (waiting for an event to complete)   
 R - running or runnable (on run queue)   
 Дополнительные буквы статусов:  
-s - session leader  
-+ - находится в группе процессов переднего плана  
+`s` - session leader  
+`+` - находится в группе процессов переднего плана  
