@@ -1,15 +1,10 @@
 # Домашнее задание к занятию "3.4. Операционные системы, лекция 2"
 
-1. На лекции мы познакомились с [node_exporter](https://github.com/prometheus/node_exporter/releases). В демонстрации его исполняемый файл запускался в background. Этого достаточно для демо, но не для настоящей production-системы, где процессы должны находиться под внешним управлением. Используя знания из лекции по systemd, создайте самостоятельно простой [unit-файл](https://www.freedesktop.org/software/systemd/man/systemd.service.html) для node_exporter:
-
-    * поместите его в автозагрузку,
-<!--    * предусмотрите жность добавления опций к запускаемому процессу через внешний файл (посмотрите, например, на `systemctl cat cron`), -->
-    * удостоверьтесь, что с помощью systemctl процесс корректно стартует, завершается, а после перезагрузки автоматически поднимается.
-
-node_exporter скачан, распакован в папку `/home/user/node_exporter
+* Задание 1  
+`node_exporter` скачан, распакован в папку `/home/user/node_exporter`
 запущен через `./node_exporter` - работает на `localhost:9100`. Остановлен.
 
-Создание юнит-файла для systemd:  
+Создание юнит-файла для systemd (со ссылкой на внешний файл переменных окружения):  
 ~~~
 sudo nano /etc/systemd/system/nodeexporter.service
 ~~~
@@ -20,22 +15,39 @@ Description=node_exporter
 
 [Service]
 ExecStart=/home/user/node_exporter/node_exporter
+EnvironmentFile=/home/user/node_exporter/myenv.file
 
 [Install]
 WantedBy=multi-user.target
 ~~~
+Создаем файл c переменной окружения:  
+~~~
+echo MyTextVar=\'My external variable in file\' > myenv.file
+~~~
 Запуск (успешно):
 ~~~
+sudo systemctl daemon-reload
 sudo systemctl start nodeexporter
 ~~~
 Останов (успешно):  
 ~~~
 sudo systemctl stop nodeexporter
 ~~~
-Добавление в автозагрузку (успешно, после рестарта VM все подномается):
+Добавление в автозагрузку (успешно, после рестарта VM все поднимается):
 ~~~
 sudo systemctl enable nodeexporter
 ~~~
+Проверка появившейся переменной окружения в процессе (3694):  
+~~~
+user@vboxpc:~$ ps aux | grep export
+root        3694  0.0  0.3 717892 15160 ?        Ssl  10:49   0:00 /home/user/node_exporter/node_exporter
+~~~
+Смотрим переменную в /proc:  
+~~~
+user@vboxpc:~$ sudo cat /proc/3694/environ
+LANG=en_US.UTF-8LC_ADDRESS=ru_RU.UTF-8LC_IDENTIFICATION=ru_RU.UTF-8LC_MEASUREMENT=ru_RU.UTF-8LC_MONETARY=ru_RU.UTF-8LC_NAME=ru_RU.UTF-8LC_NUMERIC=ru_RU.UTF-8LC_PAPER=ru_RU.UTF-8LC_TELEPHONE=ru_RU.UTF-8LC_TIME=ru_RU.UTF-8PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/binINVOCATION_ID=3b77dc4ebbc2411e9814656e8d335725JOURNAL_STREAM=8:48901MyTextVar=My external variable in file
+~~~
+- последняя в строке.
 
 1. Ознакомьтесь с опциями node_exporter и выводом `/metrics` по-умолчанию. Приведите несколько опций, которые вы бы выбрали для базового мониторинга хоста по CPU, памяти, диску и сети.
 1. Установите в свою виртуальную машину [Netdata](https://github.com/netdata/netdata). Воспользуйтесь [готовыми пакетами](https://packagecloud.io/netdata/netdata/install) для установки (`sudo apt install -y netdata`). После успешной установки:
