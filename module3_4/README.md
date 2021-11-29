@@ -1,7 +1,7 @@
 # Домашнее задание к занятию "3.4. Операционные системы, лекция 2"
 
-* Задание 1  
-`node_exporter` скачан, распакован в папку `/home/user/node_exporter`
+# Задание 1  
+Архив `node_exporter` скачан, распакован в папку `/home/user/node_exporter`
 запущен через `./node_exporter` - работает на `localhost:9100`. Остановлен.
 
 Создание юнит-файла для systemd (со ссылкой на внешний файл переменных окружения):  
@@ -47,10 +47,37 @@ root        3694  0.0  0.3 717892 15160 ?        Ssl  10:49   0:00 /home/user/no
 user@vboxpc:~$ sudo cat /proc/3694/environ
 LANG=en_US.UTF-8LC_ADDRESS=ru_RU.UTF-8LC_IDENTIFICATION=ru_RU.UTF-8LC_MEASUREMENT=ru_RU.UTF-8LC_MONETARY=ru_RU.UTF-8LC_NAME=ru_RU.UTF-8LC_NUMERIC=ru_RU.UTF-8LC_PAPER=ru_RU.UTF-8LC_TELEPHONE=ru_RU.UTF-8LC_TIME=ru_RU.UTF-8PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/binINVOCATION_ID=3b77dc4ebbc2411e9814656e8d335725JOURNAL_STREAM=8:48901MyTextVar=My external variable in file
 ~~~
-- последняя в строке.
+последняя в строке.  
+# Задание 2
+Выбрал следующие параметры для мониторинга:  
+CPU:  
+~~~
+node_cpu_seconds_total{cpu="0",mode="system"}
+node_cpu_seconds_total{cpu="0",mode="user"}
+node_cpu_seconds_total{cpu="1",mode="system"}
+node_cpu_seconds_total{cpu="1",mode="user"}
+node_cpu_seconds_total{cpu="2",mode="system"}
+node_cpu_seconds_total{cpu="2",mode="user"}
+node_cpu_seconds_total{cpu="3",mode="system"}
+node_cpu_seconds_total{cpu="3",mode="user"}
+~~~
+Для памяти:  
+~~~
+node_memory_MemAvailable_bytes 
+node_memory_MemFree_bytes
+~~~
+Для дисков (Для моей конфигурации):  
+~~~
+node_filesystem_avail_bytes{device="/dev/sda5",fstype="ext4",mountpoint="/"}
+node_filesystem_free_bytes{device="/dev/sda5",fstype="ext4",mountpoint="/"}
+~~~
+Для сети:
+~~~
+node_network_receive_bytes_total{device="enp0s3"} 
+node_network_transmit_bytes_total{device="enp0s3"}
+~~~
 
-1. Ознакомьтесь с опциями node_exporter и выводом `/metrics` по-умолчанию. Приведите несколько опций, которые вы бы выбрали для базового мониторинга хоста по CPU, памяти, диску и сети.
-1. Установите в свою виртуальную машину [Netdata](https://github.com/netdata/netdata). Воспользуйтесь [готовыми пакетами](https://packagecloud.io/netdata/netdata/install) для установки (`sudo apt install -y netdata`). После успешной установки:
+3. Установите в свою виртуальную машину [Netdata](https://github.com/netdata/netdata). Воспользуйтесь [готовыми пакетами](https://packagecloud.io/netdata/netdata/install) для установки (`sudo apt install -y netdata`). После успешной установки:
     * в конфигурационном файле `/etc/netdata/netdata.conf` в секции [web] замените значение с localhost на `bind to = 0.0.0.0`,
     * добавьте в Vagrantfile проброс порта Netdata на свой локальный компьютер и сделайте `vagrant reload`:
 
