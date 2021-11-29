@@ -3,8 +3,39 @@
 1. На лекции мы познакомились с [node_exporter](https://github.com/prometheus/node_exporter/releases). В демонстрации его исполняемый файл запускался в background. Этого достаточно для демо, но не для настоящей production-системы, где процессы должны находиться под внешним управлением. Используя знания из лекции по systemd, создайте самостоятельно простой [unit-файл](https://www.freedesktop.org/software/systemd/man/systemd.service.html) для node_exporter:
 
     * поместите его в автозагрузку,
-    * предусмотрите возможность добавления опций к запускаемому процессу через внешний файл (посмотрите, например, на `systemctl cat cron`),
+<!--    * предусмотрите жность добавления опций к запускаемому процессу через внешний файл (посмотрите, например, на `systemctl cat cron`), -->
     * удостоверьтесь, что с помощью systemctl процесс корректно стартует, завершается, а после перезагрузки автоматически поднимается.
+
+node_exporter скачан, распакован в папку `/home/user/node_exporter
+запущен через `./node_exporter` - работает на `localhost:9100`. Остановлен.
+
+Создание юнит-файла для systemd:  
+~~~
+sudo nano /etc/systemd/system/nodeexporter.service
+~~~
+Содержимое файла:
+~~~
+[Unit]
+Description=node_exporter
+
+[Service]
+ExecStart=/home/user/node_exporter/node_exporter
+
+[Install]
+WantedBy=multi-user.target
+~~~
+Запуск (успешно):
+~~~
+sudo systemctl start nodeexporter
+~~~
+Останов (успешно):  
+~~~
+sudo systemctl stop nodeexporter
+~~~
+Добавление в автозагрузку (успешно, после рестарта VM все подномается):
+~~~
+sudo systemctl enable nodeexporter
+~~~
 
 1. Ознакомьтесь с опциями node_exporter и выводом `/metrics` по-умолчанию. Приведите несколько опций, которые вы бы выбрали для базового мониторинга хоста по CPU, памяти, диску и сети.
 1. Установите в свою виртуальную машину [Netdata](https://github.com/netdata/netdata). Воспользуйтесь [готовыми пакетами](https://packagecloud.io/netdata/netdata/install) для установки (`sudo apt install -y netdata`). После успешной установки:
