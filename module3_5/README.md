@@ -5,31 +5,14 @@
 # задание 2
 Жетская ссылка на файл не может имет набор разрешений, отличный от файла на который ссылается, т.к. по сути это один  и тот же файл (сссылка на место на диске с одинаковым inode).  
 # задание 3
-1. Сделайте `vagrant destroy` на имеющийся инстанс Ubuntu. Замените содержимое Vagrantfile следующим:
-
-    ```bash
-    Vagrant.configure("2") do |config|
-      config.vm.box = "bento/ubuntu-20.04"
-      config.vm.provider :virtualbox do |vb|
-        lvm_experiments_disk0_path = "/tmp/lvm_experiments_disk0.vmdk"
-        lvm_experiments_disk1_path = "/tmp/lvm_experiments_disk1.vmdk"
-        vb.customize ['createmedium', '--filename', lvm_experiments_disk0_path, '--size', 2560]
-        vb.customize ['createmedium', '--filename', lvm_experiments_disk1_path, '--size', 2560]
-        vb.customize ['storageattach', :id, '--storagectl', 'SATA Controller', '--port', 1, '--device', 0, '--type', 'hdd', '--medium', lvm_experiments_disk0_path]
-        vb.customize ['storageattach', :id, '--storagectl', 'SATA Controller', '--port', 2, '--device', 0, '--type', 'hdd', '--medium', lvm_experiments_disk1_path]
-      end
-    end
-    ```
+Выполнено. Машина запущена с 2 доп. дисками:  
 ![img](VirtualBox_ubn2004_main_dev_1638349352738_87287_01_12_2021_12_11_11.png)
-~~~
-  config.vm.define "main_dev"
-~~~
-    Данная конфигурация создаст новую виртуальную машину с двумя дополнительными неразмеченными дисками по 2.5 Гб.
-Выполнено. Машина запущена с 2 доп. дисками:
-
-
+# задание 4
 1. Используя `fdisk`, разбейте первый диск на 2 раздела: 2 Гб, оставшееся пространство.
+Выполнено:
+![image](https://user-images.githubusercontent.com/22905019/144207393-fe54b42c-003c-4fe4-a79b-c5f887f46d9d.png)
 
+vagrant@fullstackdev:~$sudo 
 1. Используя `sfdisk`, перенесите данную таблицу разделов на второй диск.
 
 1. Соберите `mdadm` RAID1 на паре разделов 2 Гб.
