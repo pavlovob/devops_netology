@@ -6,23 +6,23 @@
 Жетская ссылка на файл не может имет набор разрешений, отличный от файла на который ссылается, т.к. по сути это один  и тот же файл (сссылка на место на диске с одинаковым inode).  
 # задание 3
 Выполнено. Машина запущена с 2 доп. дисками:  
-![image](https://user-images.githubusercontent.com/22905019/144208529-f8b5868b-5902-4318-abe3-a62eb6f56a6a.png)
+![image](https://user-images.githubusercontent.com/22905019/144208529-f8b5868b-5902-4318-abe3-a62eb6f56a6a.png)  
 # задание 4
 Выполнено:  
-![image](https://user-images.githubusercontent.com/22905019/144208356-7e7270ea-14b9-42cf-9e37-e8eb3508ee12.png)
+![image](https://user-images.githubusercontent.com/22905019/144208356-7e7270ea-14b9-42cf-9e37-e8eb3508ee12.png)  
 # задание 5
 Выполнено:  
-![image](https://user-images.githubusercontent.com/22905019/144210909-5449b4cb-1f02-4fea-ab73-763ea69b5441.png)
-![image](https://user-images.githubusercontent.com/22905019/144211010-bb499b7b-ed21-4e7b-93ac-09addec3e281.png)
-![image](https://user-images.githubusercontent.com/22905019/144211079-903e393e-0628-45be-b417-082ab44d5c48.png)
+![image](https://user-images.githubusercontent.com/22905019/144210909-5449b4cb-1f02-4fea-ab73-763ea69b5441.png)  
+![image](https://user-images.githubusercontent.com/22905019/144211010-bb499b7b-ed21-4e7b-93ac-09addec3e281.png)  
+![image](https://user-images.githubusercontent.com/22905019/144211079-903e393e-0628-45be-b417-082ab44d5c48.png)  
 # задание 6
 Выполнено:  
-![image](https://user-images.githubusercontent.com/22905019/144212447-9dcf0950-e0bb-4085-842b-58c75c5fde1e.png)
-![image](https://user-images.githubusercontent.com/22905019/144212628-f616bbf2-7f9d-4336-a89f-fe537d063b58.png)
-![image](https://user-images.githubusercontent.com/22905019/144212751-e2a122f7-a6bc-4da9-9caf-1bddef6b01f9.png)
+![image](https://user-images.githubusercontent.com/22905019/144212447-9dcf0950-e0bb-4085-842b-58c75c5fde1e.png)  
+![image](https://user-images.githubusercontent.com/22905019/144212628-f616bbf2-7f9d-4336-a89f-fe537d063b58.png)  
+![image](https://user-images.githubusercontent.com/22905019/144212751-e2a122f7-a6bc-4da9-9caf-1bddef6b01f9.png)  
 # задание 7
 Выполнено:  
-![image](https://user-images.githubusercontent.com/22905019/144217296-61ce280a-1a20-4c8c-b87a-be21811f7688.png)
+![image](https://user-images.githubusercontent.com/22905019/144217296-61ce280a-1a20-4c8c-b87a-be21811f7688.png)  
 # задание 8
 # задание 9
 
