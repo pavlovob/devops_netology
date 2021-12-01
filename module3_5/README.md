@@ -20,6 +20,7 @@
       end
     end
     ```
+![img](VirtualBox_ubn2004_main_dev_1638349352738_87287_01_12_2021_12_11_11.png)
 ~~~
   config.vm.define "main_dev"
 ~~~
