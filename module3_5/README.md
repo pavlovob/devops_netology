@@ -10,9 +10,8 @@
 # задание 4
 1. Используя `fdisk`, разбейте первый диск на 2 раздела: 2 Гб, оставшееся пространство.
 Выполнено:
-![image](https://user-images.githubusercontent.com/22905019/144207393-fe54b42c-003c-4fe4-a79b-c5f887f46d9d.png)
+![image](https://user-images.githubusercontent.com/22905019/144208356-7e7270ea-14b9-42cf-9e37-e8eb3508ee12.png)
 
-vagrant@fullstackdev:~$sudo 
 1. Используя `sfdisk`, перенесите данную таблицу разделов на второй диск.
 
 1. Соберите `mdadm` RAID1 на паре разделов 2 Гб.
