@@ -10,11 +10,13 @@
 
 ![img](VirtualBox_ubn2004_main_dev_1638349352738_87287_01_12_2021_12_11_11.png)
 # задание 4
-1. Используя `fdisk`, разбейте первый диск на 2 раздела: 2 Гб, оставшееся пространство.
 Выполнено:
 ![image](https://user-images.githubusercontent.com/22905019/144208356-7e7270ea-14b9-42cf-9e37-e8eb3508ee12.png)
+# задание 5
+![image](https://user-images.githubusercontent.com/22905019/144210909-5449b4cb-1f02-4fea-ab73-763ea69b5441.png)
+![image](https://user-images.githubusercontent.com/22905019/144211010-bb499b7b-ed21-4e7b-93ac-09addec3e281.png)
+![image](https://user-images.githubusercontent.com/22905019/144211079-903e393e-0628-45be-b417-082ab44d5c48.png)
 
-1. Используя `sfdisk`, перенесите данную таблицу разделов на второй диск.
 
 1. Соберите `mdadm` RAID1 на паре разделов 2 Гб.
 
