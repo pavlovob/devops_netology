@@ -34,12 +34,22 @@
 ![image](https://user-images.githubusercontent.com/22905019/144219912-f4d517fa-53f7-4144-8e98-0249e1e7ffc4.png)  
 # задание 10 
 Выполнено:  
-
+![image](https://user-images.githubusercontent.com/22905019/144222365-8032fef4-dfc5-4309-89f7-f1ea49c3f4d6.png)  
 # задание 11
-# задание 12 
+Выполнено:  
+![image](https://user-images.githubusercontent.com/22905019/144222684-08479630-a804-40fa-b3e0-d44e16ddde08.png)  
+# задание 12  
+Выполнено:  
+![image](https://user-images.githubusercontent.com/22905019/144223231-181be225-cfe5-4005-b666-cbf414a26f92.png)  
 # задание 13
+Выполнено:  
+![image](https://user-images.githubusercontent.com/22905019/144223564-26966e6f-3935-4d1f-88ef-dfce6e2950ce.png)  
 # задание 14
+Выполнено:  
+![image](https://user-images.githubusercontent.com/22905019/144223643-5dc72890-8458-42d5-b7ba-08a471181aed.png)  
 # задание 15
+Выполнено:  
+у
 # задание 16
 # задание 17
 # задание 18
