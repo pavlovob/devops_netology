@@ -49,9 +49,20 @@
 ![image](https://user-images.githubusercontent.com/22905019/144223643-5dc72890-8458-42d5-b7ba-08a471181aed.png)  
 # задание 15
 Выполнено:  
-у
-# задание 16
+![image](https://user-images.githubusercontent.com/22905019/144224284-ffe98b0d-2a2f-4d04-9db5-4e13f4e53f5f.png)  
+# задание 16  
+Выполнено (после перезагрузки ВМ нумерация устройств поменялась /dev/md127 и /dev/md126 но PV перенесся):  
+![image](https://user-images.githubusercontent.com/22905019/144226057-177444de-0ea9-42f1-b76a-d9e2ec36ec5b.png)  
 # задание 17
+Выполнено:  
+![image](https://user-images.githubusercontent.com/22905019/144226881-5577b04c-998b-4870-839f-6208f8258e54.png)  
 # задание 18
+Выполнено:  
+![image](https://user-images.githubusercontent.com/22905019/144227076-5df79138-c811-4c27-9e2b-aff3337642db.png)  
 # задание 19
+Выполнено:  
+![image](https://user-images.githubusercontent.com/22905019/144227300-d0a41077-9156-4fcd-b308-e7d07c7c9c5d.png)  
 # задание 20
+Выполнено:  
+![image](https://user-images.githubusercontent.com/22905019/144227509-7c5b8106-c39a-48e2-9013-f8d8e2c593f4.png)  
+
