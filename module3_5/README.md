@@ -23,6 +23,7 @@
 # задание 7
 Выполнено:  
 ![image](https://user-images.githubusercontent.com/22905019/144217296-61ce280a-1a20-4c8c-b87a-be21811f7688.png)  
+![image](https://user-images.githubusercontent.com/22905019/144217809-681ded63-de63-456e-bd7c-d628d67513e3.png)  
 # задание 8
 # задание 9
 
