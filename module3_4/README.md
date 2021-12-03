@@ -14,12 +14,13 @@ sudo nano /etc/systemd/system/nodeexporter.service
 Description=node_exporter
 
 [Service]
-ExecStart=/home/user/node_exporter/node_exporter
+ExecStart=/home/user/node_exporter/node_exporter $OPTIONS
 EnvironmentFile=/home/user/node_exporter/myenv.file
 
 [Install]
 WantedBy=multi-user.target
 ~~~
+Дополнительную информацию можно передать в node_exporter в переменной $OPTIONS в качестве аргумента в строке ExecStart=
 Создаем файл c переменной окружения:  
 ~~~
 echo MyTextVar=\'My external variable in file\' > myenv.file
