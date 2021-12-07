@@ -32,6 +32,19 @@ whois 213.87.128.99
 Выполнено. наибольшая задержка на участке 8 (по среднему):  
 ![image](https://user-images.githubusercontent.com/22905019/144986558-e5a1515e-4a70-453f-9302-1a77e4cdc435.png)
 # Задание 7
+За доменное имя dns.google отвечают сервера:  
+~~~
+ns1.zdns.google.
+ns4.zdns.google.
+ns2.zdns.google.
+ns3.zdns.google.
+~~~
+A - записи:
+~~~
+dns.google.		900	IN	A	8.8.8.8
+dns.google.		900	IN	A	8.8.4.4
+~~~
+![image](https://user-images.githubusercontent.com/22905019/144988349-a6db22a6-2ec0-4f79-b820-e2abc0c96e29.png)  
 
 # Задание 8
 7. Какие DNS сервера отвечают за доменное имя dns.google? Какие A записи? воспользуйтесь утилитой `dig`
