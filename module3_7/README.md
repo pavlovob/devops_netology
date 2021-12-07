@@ -1,10 +1,55 @@
 # Домашнее задание к занятию "3.7. Компьютерные сети, лекция 2"
 # Задание 1
 Список доступных интерфейсов на ПК:  
-
+![image](https://user-images.githubusercontent.com/22905019/144993688-f4c15934-a50b-479d-80f0-cc73b5e987d3.png)
+![image](https://user-images.githubusercontent.com/22905019/144993807-1cfa6343-b9b2-4629-aacd-7e0eaad300cb.png)
+Команды для Linux:
+~~~
+ip link show
+ifconfig
+~~~
+Для OS Windows 
+~~~
+ipconfig
+~~~
 # Задание 2
-
+Для распознавания ближайшего сетевого соседа используется протокол LLDP (Link Layer Discovery Protocol)  
+Программно релизуется пакетом lldp (в Linux):  
+~~~
+sudo apt install lldpd
+sudo systemctl enable lldpd 
+sudo systemctl start lldpd
+lldpctl
+~~~
+В моем случае машина одинокая ):  
+![image](https://user-images.githubusercontent.com/22905019/144995300-5fb02dcd-d847-46b8-8e27-1be92ad403f8.png)
 # Задание 3
+Для разделения L2 коммутатора на несколько виртуальных сетей используется технология VLAN (Virtual LAN). В Linux для этого используется пакет `vlan`:  
+Смотрим интерфейсы. (см 1й скриншот). Используем физический интерфейс eno1. Для конфигурации используем утилиту `vconfig`:    
+~~~
+sudo apt install vlan
+sudo vconfig add eno1 100
+~~~
+Появился тегированный VLAN интерфейс с тегом 100 (eno1.100@eno1):  
+![image](https://user-images.githubusercontent.com/22905019/144997455-83e99569-0c4f-415c-9fcf-a11f1ef52cfd.png)
+Поднимаем и назначаем адрес:  
+![image](https://user-images.githubusercontent.com/22905019/144998232-c22e5c25-976d-4cc2-958a-68e5a231f5bd.png)
+Теперь логический интерфейс "eno1.100" будет обрабатывать пакеты, помеченные тегом 100  
+Указанная конфигурация временная и пропадет при перезагрузке ПК. Чтобы настройки были перманентными, нужно добавить конфиг в /etc/network/interfaces (или в yaml netplan в зависимости от версии ОС):  
+~~~
+#Interface eno1
+auto eno1
+iface eno1 inet static
+      address 192.168.1.10
+      netmask 255.255.255.0
+      gateway 192.168.1.1
+      dns-nameservers 8.8.8.8
+#Interface eno1.100 (tagged)
+auto eno1.100
+iface eno1.100 inet static
+      address 192.168.0.11
+      netmask 255.255.255.0
+~~~
 # Задание 4
 # Задание 5
 # Задание 6
