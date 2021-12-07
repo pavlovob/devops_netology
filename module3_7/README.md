@@ -31,9 +31,10 @@ sudo apt install vlan
 sudo vconfig add eno1 100
 ~~~
 Появился тегированный VLAN интерфейс с тегом 100 (eno1.100):  
-![image](https://user-images.githubusercontent.com/22905019/144997455-83e99569-0c4f-415c-9fcf-a11f1ef52cfd.png)
+![image](https://user-images.githubusercontent.com/22905019/144997455-83e99569-0c4f-415c-9fcf-a11f1ef52cfd.png)  
 Поднимаем и назначаем адрес:  
-![image](https://user-images.githubusercontent.com/22905019/144998232-c22e5c25-976d-4cc2-958a-68e5a231f5bd.png)
+![image](https://user-images.githubusercontent.com/22905019/145000814-4a529c54-1b57-450d-a32a-55edca83e5ce.png)  
+![image](https://user-images.githubusercontent.com/22905019/145000874-955804c9-3773-4de4-b7f6-9704c70fbe49.png)  
 Теперь логический интерфейс "eno1.100" будет обрабатывать пакеты, помеченные тегом 100  
 Указанная конфигурация временная и пропадет при перезагрузке ПК. Чтобы настройки были перманентными, нужно добавить конфиг в /etc/network/interfaces (или в yaml netplan в зависимости от версии ОС):  
 ~~~
