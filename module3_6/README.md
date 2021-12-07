@@ -16,9 +16,15 @@ Satus Code: 200
 Скриншот:  
 ![image](https://user-images.githubusercontent.com/22905019/144561686-10f8827f-62de-4f00-9653-70759d774e92.png)  
 # Задание 3
-текущий IP адрес (внешний):
+текущий IP адрес (внешний) - 213.87.128.99:  
 ![image](https://user-images.githubusercontent.com/22905019/144977263-87171d86-b6e5-4e7c-978d-ec0f1e3c7440.png)
 # Здаание 4
+~~~
+sudo apt install whois
+whois 213.87.128.99
+~~~
+Провайдер - МТС (Mobile TeleSystems), Автономная система -  AS8359:  
+![image](https://user-images.githubusercontent.com/22905019/144979673-487f13ba-53a5-42b6-be59-a2e63543f88f.png)
 # Здаание 5
 # Здаание 6
 # Здаание 7
