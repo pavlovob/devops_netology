@@ -1,7 +1,7 @@
 # Домашнее задание к занятию "3.8. Компьютерные сети, лекция 3"
 # Задание 1
 Мой внешний IP и подключение к серверу:  
-![image](https://user-images.githubusercontent.com/22905019/145704314-a1f449d7-d7dc-422c-b451-520c2703ff15.png)
+![image](https://user-images.githubusercontent.com/22905019/145704314-a1f449d7-d7dc-422c-b451-520c2703ff15.png)  
 Маршруты к хосту: 
 show ip route:  
 ~~~
