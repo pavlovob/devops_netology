@@ -233,14 +233,19 @@ route-views>
 Инициализация, создание и настройка интерфейса:  
 ![image](https://user-images.githubusercontent.com/22905019/145705373-5a25e472-031c-4093-b892-6ac0d60091a3.png)  
 Добавление маршрутов:  
-
+![image](https://user-images.githubusercontent.com/22905019/145707502-ac4edb6b-36be-4011-90f3-051b71040453.png)  
+![image](https://user-images.githubusercontent.com/22905019/145707523-b05e538c-5bd3-4828-b171-786865e6fe71.png)  
 # Задание 3
+Проверка открытых портов:  
+![image](https://user-images.githubusercontent.com/22905019/145707731-5c99ff17-d0e7-4f21-88d3-f778023c43fb.png)  
+![image](https://user-images.githubusercontent.com/22905019/145707891-75ac2690-a51a-467b-a600-8f491cacafc3.png)  
+Порты используются следующими приложениями и протоколами:  
+DNS, Система сетевой печати, node_exporter, web-сервар apache2, MySQL сервер.  
 # Задание 4
+UDP порты:  
+![image](https://user-images.githubusercontent.com/22905019/145707931-bf7bbb83-5eeb-4f6b-b46f-277d3290afbf.png)  
+
 # Задание 5
-2. Создайте dummy0 интерфейс в Ubuntu. Добавьте несколько статических маршрутов. Проверьте таблицу маршрутизации.
-
-3. Проверьте открытые TCP порты в Ubuntu, какие протоколы и приложения используют эти порты? Приведите несколько примеров.
-
 4. Проверьте используемые UDP сокеты в Ubuntu, какие протоколы и приложения используют эти порты?
 
 5. Используя diagrams.net, создайте L3 диаграмму вашей домашней сети или любой другой сети, с которой вы работали. 
