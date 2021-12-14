@@ -12,17 +12,18 @@ Google authenticator на мобильный телефон установлен
 ![image](https://user-images.githubusercontent.com/22905019/145950393-318b883e-7c74-40ae-ac2f-679f42ba463e.png)  
 Сервер настроен на использование TLS:  
 ![image](https://user-images.githubusercontent.com/22905019/145950538-029f562d-7a71-4fe3-995b-de2a5ed297d7.png)  
-![image](https://user-images.githubusercontent.com/22905019/145950136-9310b900-7015-4efa-9873-d362f6770467.png)
-
+![image](https://user-images.githubusercontent.com/22905019/145950136-9310b900-7015-4efa-9873-d362f6770467.png)  
 # Задание 4
+Скрипт загружен:  
+![image](https://user-images.githubusercontent.com/22905019/145952109-2bf641a3-e3be-4d16-a58b-cb37676e68a8.png)  
+Результат выполнения проверки (потенциальная уязвимость в github.com LUCKY13:  
+![image](https://user-images.githubusercontent.com/22905019/145952268-3e8bb33e-7e86-444c-a05b-df936e81f906.png)  
 # Задание 5
-# Задание 6
+ssh ключ был сгенерирован ранее (dev-машина, менять не стал):  
+![image](https://user-images.githubusercontent.com/22905019/145952668-15e69951-0bd5-4fe8-b28d-d62860c5a72f.png)  
+Загрузка на V-box ubuntu и  вход по ssh без пароля (ключ так же уже был, перезаписан в known-hosts):  
+![image](https://user-images.githubusercontent.com/22905019/145952964-f252561e-9628-47a2-a6b7-df35fd6211fb.png)  
 # Задание 7
-
-4. Проверьте на TLS уязвимости произвольный сайт в интернете (кроме сайтов МВД, ФСБ, МинОбр, НацБанк, РосКосмос, РосАтом, РосНАНО и любых госкомпаний, объектов КИИ, ВПК ... и тому подобное).
-
-5. Установите на Ubuntu ssh сервер, сгенерируйте новый приватный ключ. Скопируйте свой публичный ключ на другой сервер. Подключитесь к серверу по SSH-ключу.
- 
 6. Переименуйте файлы ключей из задания 5. Настройте файл конфигурации SSH клиента, так чтобы вход на удаленный сервер осуществлялся по имени сервера.
 
 7. Соберите дамп трафика утилитой tcpdump в формате pcap, 100 пакетов. Откройте файл pcap в Wireshark.
