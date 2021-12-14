@@ -21,17 +21,24 @@ Google authenticator на мобильный телефон установлен
 # Задание 5
 ssh ключ был сгенерирован ранее (dev-машина, менять не стал):  
 ![image](https://user-images.githubusercontent.com/22905019/145952668-15e69951-0bd5-4fe8-b28d-d62860c5a72f.png)  
-Загрузка на V-box ubuntu и  вход по ssh без пароля (записан ринудительно -f):  
+Загрузка на V-box ubuntu и  вход по ssh без пароля (записан принудительно -f):  
 ![image](https://user-images.githubusercontent.com/22905019/145952964-f252561e-9628-47a2-a6b7-df35fd6211fb.png)  
 # Задание 6
 Конфигурационный файл (самый простой):  
 ![image](https://user-images.githubusercontent.com/22905019/145958270-9114c27c-f6da-4d23-83b3-a3443f6a2d6e.png)  
 Переименование файла и вход на сервер:  
 ![image](https://user-images.githubusercontent.com/22905019/145958399-acf93470-49cc-471c-a118-8bd4784d2261.png)  
+# Задание 7
+Список интерфейсов:  
+![image](https://user-images.githubusercontent.com/22905019/145960151-9e342d3d-d941-409f-b78b-54aad65928cd.png)  
+Запуск tcpdump (100 пакетов) на интерфейсе, который смотрит в интернет:  
+![image](https://user-images.githubusercontent.com/22905019/145962889-f3278c54-39da-4b9a-a383-5d5a05594f69.png)   
+Открытие полученного файла в wireshark:  
+![image](https://user-images.githubusercontent.com/22905019/145962755-61011a80-31b3-4e2d-9ca4-056127b78ca8.png)  
 
 7. Соберите дамп трафика утилитой tcpdump в формате pcap, 100 пакетов. Откройте файл pcap в Wireshark.
 
- ---
+---
 ## Задание для самостоятельной отработки (необязательно к выполнению)
 
 8*. Просканируйте хост scanme.nmap.org. Какие сервисы запущены?
