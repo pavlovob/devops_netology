@@ -5,16 +5,14 @@
 # Задание 2
 Google authenticator на мобильный телефон установлен, вход в Bitwarden через ОТР настроен:  
 ![image](https://user-images.githubusercontent.com/22905019/145948023-de3012a8-6dca-4527-8596-68889b91915a.png)  
-
 # Задание 3
+Сервер Apache2 установлен:  
+![image](https://user-images.githubusercontent.com/22905019/145948826-2affa2f3-8c7f-499d-a0eb-4efe33cf0211.png)  
+
 # Задание 4
 # Задание 5
 # Задание 6
 # Задание 7
-
-1. Установите Bitwarden плагин для браузера. Зарегестрируйтесь и сохраните несколько паролей.
-
-2. Установите Google authenticator на мобильный телефон. Настройте вход в Bitwarden акаунт через Google authenticator OTP.
 
 3. Установите apache2, сгенерируйте самоподписанный сертификат, настройте тестовый сайт для работы по HTTPS.
 
