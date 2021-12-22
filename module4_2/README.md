@@ -35,12 +35,26 @@ for result in result_os.split('\n'):
 
 ### Ваш скрипт:
 ```python
-???
+#!/usr/bin/env python3
+
+import os
+
+bash_command = ["cd ~/netology/sysadm-homeworks",  "pwd", "git status"]
+result_os = os.popen(' && '.join(bash_command)).read()
+cur_dir = result_os.split('\n')[0]
+is_change = False
+for result in result_os.split('\n'):
+    if result.find('modified') != -1:
+        prepare_result = result.replace('\tmodified:   ', '')
+        print(cur_dir + "/" + prepare_result)
+        #break
 ```
 
 ### Вывод скрипта при запуске при тестировании:
 ```
-???
+user@wbn04pavlov:~/tmp$ ./file1
+/home/user/netology/sysadm-homeworks/3
+/home/user/netology/sysadm-homeworks/5
 ```
 
 ## Обязательная задача 3
