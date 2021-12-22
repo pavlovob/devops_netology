@@ -113,13 +113,78 @@ user@wbn04pavlov:~/tmp$
 
 ### Ваш скрипт:
 ```python
- 
+ #!/usr/bin/env python3
+
+import os
+import socket
+import time
+
+
+cur_dir = os.getcwd()
+services = ("drive.google.com", "mail.google.com", "google.com")
+states = {}
+
+while True:
+    for service in services:
+        ip = socket.gethostbyname(service)
+        print("<" + service + "> - <" + ip + ">")
+        time.sleep(1)
+        if states.get(service) is None:
+            states[service] = ip
+        else:
+            if states.get(service) != ip:
+                print ("[ERROR] <" + service + "> IP mismatch: <" + states[service] + "><" + ip + ">")
 
 ```
 
 ### Вывод скрипта при запуске при тестировании:
 ```
+user@wbn04pavlov:~/tmp$ ./file3
+<drive.google.com> - <173.194.73.194>
+<mail.google.com> - <216.58.210.165>
+<google.com> - <216.58.210.174>
+<drive.google.com> - <173.194.73.194>
+<mail.google.com> - <216.58.210.165>
+<google.com> - <216.58.210.174>
+<drive.google.com> - <173.194.73.194>
+<mail.google.com> - <216.58.210.165>
+<google.com> - <216.58.210.174>
+<drive.google.com> - <173.194.73.194>
+<mail.google.com> - <216.58.210.165>
+<google.com> - <216.58.210.174>
+<drive.google.com> - <173.194.73.194>
+<mail.google.com> - <216.58.210.165>
+<google.com> - <216.58.210.174>
+<drive.google.com> - <173.194.73.194>
+<mail.google.com> - <216.58.210.165>
+<google.com> - <216.58.210.174>
+<drive.google.com> - <173.194.73.194>
+<mail.google.com> - <216.58.210.165>
+<google.com> - <216.58.210.174>
+<drive.google.com> - <173.194.73.194>
+<mail.google.com> - <216.58.210.165>
+<google.com> - <216.58.210.174>
+<drive.google.com> - <64.233.165.194>
+[ERROR] <drive.google.com> IP mismatch: <173.194.73.194><64.233.165.194>
+<mail.google.com> - <216.58.209.165>
+[ERROR] <mail.google.com> IP mismatch: <216.58.210.165><216.58.209.165>
+<google.com> - <216.58.210.142>
+[ERROR] <google.com> IP mismatch: <216.58.210.174><216.58.210.142>
+<drive.google.com> - <64.233.165.194>
+[ERROR] <drive.google.com> IP mismatch: <173.194.73.194><64.233.165.194>
+<mail.google.com> - <216.58.209.165>
+[ERROR] <mail.google.com> IP mismatch: <216.58.210.165><216.58.209.165>
+<google.com> - <216.58.210.142>
+[ERROR] <google.com> IP mismatch: <216.58.210.174><216.58.210.142>
+<drive.google.com> - <64.233.165.194>
+[ERROR] <drive.google.com> IP mismatch: <173.194.73.194><64.233.165.194>
+<mail.google.com> - <216.58.209.165>
+^CTraceback (most recent call last):
+  File "./file3", line 16, in <module>
+    time.sleep(1)
+KeyboardInterrupt
 
+user@wbn04pavlov:~/tmp$ 
 ```
 
 ## Дополнительное задание (со звездочкой*) - необязательно к выполнению
