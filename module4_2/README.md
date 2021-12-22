@@ -99,15 +99,9 @@ user@wbn04pavlov:~/tmp$ ./file2 /home/user
 No local git repo changes found in: /home/user
 user@wbn04pavlov:~/tmp$ ./file2 /home/userewrg
 Path not set or does not exist, using current folder...
-/home/user/tmp/file1
-user@wbn04pavlov:~/tmp$ ./file2 /home/userewrg
-Path not set or does not exist, using current folder...
 Changed: /home/user/tmp/file1
 user@wbn04pavlov:~/tmp$ ./file2 /home/user/netology
 No local git repo changes found in: /home/user/netology
-user@wbn04pavlov:~/tmp$ ./file2 /home/user/netology/systemadm-homeworks
-Path not set or does not exist, using current folder...
-Changed: /home/user/tmp/file1
 user@wbn04pavlov:~/tmp$ ./file2 /home/user/netology/sysadm-homeworks
 Changed: /home/user/netology/sysadm-homeworks/3
 Changed: /home/user/netology/sysadm-homeworks/5
