@@ -37,22 +37,75 @@
 
 ### Ваш скрипт:
 ```python
-???
+#!/usr/bin/env python3
+
+import os
+import socket
+import time
+import json
+import yaml
+
+cur_dir = os.getcwd()
+services = ("drive.google.com", "mail.google.com", "google.com")
+states = {}
+
+while True:
+    for service in services:
+        ip = socket.gethostbyname(service)
+        print("<" + service + "> - <" + ip + ">")
+        time.sleep(1)
+        if not states.get(service) is None and states.get(service) != ip:
+                print ("[ERROR] <" + service + "> IP mismatch: <" + states[service] + "><" + ip + ">")
+        states[service] = ip
+        with open("file.json","w") as f:
+            json.dump(states,f, indent=2)
+        with open("file.yaml","w") as f:
+            yaml.dump(states, f, explicit_start=True,explicit_end=True)       
 ```
 
 ### Вывод скрипта при запуске при тестировании:
 ```
-???
+user@wbn04pavlov:~/tmp$ ./file4
+<drive.google.com> - <173.194.222.194>
+<mail.google.com> - <216.58.209.165>
+<google.com> - <216.58.210.174>
+<drive.google.com> - <173.194.222.194>
+<mail.google.com> - <216.58.209.165>
+<google.com> - <216.58.210.174>
+<drive.google.com> - <173.194.222.194>
+<mail.google.com> - <216.58.209.165>
+<google.com> - <216.58.210.174>
+<drive.google.com> - <173.194.222.194>
+<mail.google.com> - <216.58.210.133>
+[ERROR] <mail.google.com> IP mismatch: <216.58.209.165><216.58.210.133>
+<google.com> - <216.58.210.142>
+[ERROR] <google.com> IP mismatch: <216.58.210.174><216.58.210.142>
+<drive.google.com> - <173.194.222.194>
+<mail.google.com> - <216.58.210.133>
+<google.com> - <216.58.210.142>
+<drive.google.com> - <173.194.222.194>
+^CTraceback (most recent call last):
+  File "./file4", line 17, in <module>
+    time.sleep(1)
+KeyboardInterrupt
 ```
 
 ### json-файл(ы), который(е) записал ваш скрипт:
 ```json
-???
+{
+  "drive.google.com": "173.194.222.194",
+  "mail.google.com": "216.58.210.133",
+  "google.com": "216.58.210.142"
+}
 ```
 
 ### yml-файл(ы), который(е) записал ваш скрипт:
 ```yaml
-???
+---
+drive.google.com: 173.194.222.194
+google.com: 216.58.210.142
+mail.google.com: 216.58.210.133
+...
 ```
 
 ## Дополнительное задание (со звездочкой*) - необязательно к выполнению
