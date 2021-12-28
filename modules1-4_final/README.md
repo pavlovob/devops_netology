@@ -1,5 +1,3 @@
-## Задание
-
 ### Задание 1
 ВЫполнено, VM установлена:  
 ![image](https://user-images.githubusercontent.com/22905019/147546640-ad7ffbb8-da71-4a8c-98cc-d71b2ab40966.png)  
