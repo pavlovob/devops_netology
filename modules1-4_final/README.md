@@ -93,13 +93,40 @@ Generating a RSA private key
 writing new private key to 'tls.key'
 -----
 Vault TLS key and self-signed certificate have been generated in '/opt/vault/tls'.
+user@sbn04piapp04:~$ vault
+Usage: vault <command> [args]
+
+Common commands:
+    read        Read data and retrieves secrets
+    write       Write data, configuration, and secrets
+    delete      Delete secrets and configuration
+    list        List data or secrets
+    login       Authenticate locally
+    agent       Start a Vault agent
+    server      Start a Vault server
+    status      Print seal and HA status
+    unwrap      Unwrap a wrapped secret
+
+Other commands:
+    audit          Interact with audit devices
+    auth           Interact with auth methods
+    debug          Runs the debug command
+    kv             Interact with Vault's Key-Value storage
+    lease          Interact with leases
+    monitor        Stream log messages from a Vault server
+    namespace      Interact with namespaces
+    operator       Perform operator-specific tasks
+    path-help      Retrieve API help for paths
+    plugin         Interact with Vault plugins and catalog
+    policy         Interact with policies
+    print          Prints runtime configurations
+    secrets        Interact with secrets engines
+    ssh            Initiate an SSH session
+    token          Interact with tokens
 user@sbn04piapp04:~$ 
 
 ~~~
-```
-Vault TLS key and self-signed certificate have been generated in '/opt/vault/tls'.
-user@sbn04piapp04:~$ 
-```
+
 ### Задание 1
 ### Задание 1
 ### Задание 1
