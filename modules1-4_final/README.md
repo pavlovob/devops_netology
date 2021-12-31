@@ -1,6 +1,7 @@
 ### Задание 1
-ВЫполнено, VM установлена:  
-![image](https://user-images.githubusercontent.com/22905019/147546640-ad7ffbb8-da71-4a8c-98cc-d71b2ab40966.png)  
+Выполнено, VM установлена:  
+![image](https://user-images.githubusercontent.com/22905019/147818835-944ea376-2bb1-4287-9f4c-09efb01d8c7c.png)
+
 ### Задание 2
 Установка и настройка ufw:  
 ![image](https://user-images.githubusercontent.com/22905019/147546793-993763ed-e4f9-404c-9383-06b32bc23892.png)  
