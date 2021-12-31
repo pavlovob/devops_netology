@@ -3,98 +3,111 @@
 ![image](https://user-images.githubusercontent.com/22905019/147818835-944ea376-2bb1-4287-9f4c-09efb01d8c7c.png)
 
 ### Задание 2
-Установка и настройка ufw:  
-![image](https://user-images.githubusercontent.com/22905019/147546793-993763ed-e4f9-404c-9383-06b32bc23892.png)  
-![image](https://user-images.githubusercontent.com/22905019/147547531-3258016c-fd6f-4877-b4f0-89617b09a3e2.png)  
-![image](https://user-images.githubusercontent.com/22905019/147547657-0452199c-ffd2-47af-8192-5f69ca9aaa7d.png)  
-### Задание 3
-Установка vault (поправил дефолтное правило UFW на `allow outgoing`:  
+Установка UFW:  
 ~~~
-user@sbn04piapp04:~$ curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-curl: (6) Could not resolve host: apt.releases.hashicorp.com
-gpg: no valid OpenPGP data found.
-user@sbn04piapp04:~$ ^C
-user@sbn04piapp04:~$ sudo ufw default allow outgoing
+user@vboxpc:~$ sudo apt install ufw
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following NEW packages will be installed:
+  ufw
+0 upgraded, 1 newly installed, 0 to remove and 41 not upgraded.
+Need to get 147 kB of archives.
+After this operation, 849 kB of additional disk space will be used.
+Get:1 http://ru.archive.ubuntu.com/ubuntu focal-updates/main amd64 ufw all 0.36-6ubuntu1 [147 kB]
+Fetched 147 kB in 0s (609 kB/s)
+Preconfiguring packages ...
+Selecting previously unselected package ufw.
+(Reading database ... 177028 files and directories currently installed.)
+Preparing to unpack .../ufw_0.36-6ubuntu1_all.deb ...
+Unpacking ufw (0.36-6ubuntu1) ...
+Setting up ufw (0.36-6ubuntu1) ...
+Processing triggers for man-db (2.9.1-1) ...
+Processing triggers for rsyslog (8.2001.0-1ubuntu1.1) ...
+Processing triggers for systemd (245.4-4ubuntu3.13) ...
+user@vboxpc:~$ 
+~~~
+настройка ufw:  
+~~~
+user@vboxpc:~$ sudo ufw status
+Status: inactive
+user@vboxpc:~$ sudo ufw enable
+Firewall is active and enabled on system startup
+user@vboxpc:~$ sudo ufw default allow outgoing
 Default outgoing policy changed to 'allow'
 (be sure to update your rules accordingly)
-user@sbn04piapp04:~$ curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-OK
-user@sbn04piapp04:~$ ^C
-user@sbn04piapp04:~$ sudo ufw reload
+user@vboxpc:~$ sudo ufw default deny incoming
+Default incoming policy changed to 'deny'
+(be sure to update your rules accordingly)
+user@vboxpc:~$ sudo ufw allow in 22/tcp
+Rule added
+Rule added (v6)
+user@vboxpc:~$ sudo ufw allow in 443/tcp
+Rule added
+Rule added (v6)
+user@vboxpc:~$ sudo ufw reload
 Firewall reloaded
-user@sbn04piapp04:~$ sudo ufw status
+user@vboxpc:~$ 
+user@vboxpc:~$ sudo ufw status
 Status: active
-
 To                         Action      From
 --                         ------      ----
 22/tcp                     ALLOW       Anywhere                  
 443/tcp                    ALLOW       Anywhere                  
 22/tcp (v6)                ALLOW       Anywhere (v6)             
 443/tcp (v6)               ALLOW       Anywhere (v6)             
-
-user@sbn04piapp04:~$ curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+user@vboxpc:~$ 
+~~~
+### Задание 3
+Установка hasicorp vault:  
+~~~
+user@vboxpc:~$ curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 OK
-user@sbn04piapp04:~$ sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-Hit:1 http://ru.archive.ubuntu.com/ubuntu focal InRelease                                                         
-Get:2 https://apt.releases.hashicorp.com focal InRelease [9495 B]                                                 
-Get:3 http://ru.archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]
-Get:4 http://ru.archive.ubuntu.com/ubuntu focal-backports InRelease [108 kB]
-Get:5 https://apt.releases.hashicorp.com focal/main amd64 Packages [41.1 kB]
-Get:6 http://ru.archive.ubuntu.com/ubuntu focal-security InRelease [114 kB]
-Get:7 http://ru.archive.ubuntu.com/ubuntu focal-updates/main amd64 Packages [1400 kB]
-Get:8 http://ru.archive.ubuntu.com/ubuntu focal-updates/main Translation-en [283 kB]
-Get:9 http://ru.archive.ubuntu.com/ubuntu focal-updates/main amd64 c-n-f Metadata [14.7 kB]
-Get:10 http://ru.archive.ubuntu.com/ubuntu focal-updates/restricted amd64 Packages [616 kB]
-Get:11 http://ru.archive.ubuntu.com/ubuntu focal-updates/restricted Translation-en [88.1 kB]                          
-Get:12 http://ru.archive.ubuntu.com/ubuntu focal-updates/universe amd64 Packages [884 kB]                             
-Get:13 http://ru.archive.ubuntu.com/ubuntu focal-updates/universe Translation-en [193 kB]                             
-Get:14 http://ru.archive.ubuntu.com/ubuntu focal-updates/universe amd64 c-n-f Metadata [19.9 kB]                      
-Get:15 http://ru.archive.ubuntu.com/ubuntu focal-backports/main amd64 Packages [42.0 kB]                              
-Get:16 http://ru.archive.ubuntu.com/ubuntu focal-backports/main Translation-en [10.0 kB]                              
-Get:17 http://ru.archive.ubuntu.com/ubuntu focal-backports/main amd64 c-n-f Metadata [864 B]                          
-Get:18 http://ru.archive.ubuntu.com/ubuntu focal-backports/universe amd64 Packages [18.9 kB]                          
-Get:19 http://ru.archive.ubuntu.com/ubuntu focal-backports/universe Translation-en [7492 B]                           
-Get:20 http://ru.archive.ubuntu.com/ubuntu focal-backports/universe amd64 c-n-f Metadata [636 B]                      
-Get:21 http://ru.archive.ubuntu.com/ubuntu focal-security/main amd64 Packages [1069 kB]                               
-Get:22 http://ru.archive.ubuntu.com/ubuntu focal-security/main Translation-en [197 kB]                                
-Get:23 http://ru.archive.ubuntu.com/ubuntu focal-security/main amd64 c-n-f Metadata [9096 B]                          
-Get:24 http://ru.archive.ubuntu.com/ubuntu focal-security/restricted amd64 Packages [566 kB]                          
-Get:25 http://ru.archive.ubuntu.com/ubuntu focal-security/restricted Translation-en [80.9 kB]                         
-Get:26 http://ru.archive.ubuntu.com/ubuntu focal-security/universe amd64 Packages [668 kB]                            
-Get:27 http://ru.archive.ubuntu.com/ubuntu focal-security/universe Translation-en [112 kB]                            
-Get:28 http://ru.archive.ubuntu.com/ubuntu focal-security/universe amd64 c-n-f Metadata [13.0 kB]                     
-Fetched 6679 kB in 9s (749 kB/s)                                                                                      
+user@vboxpc:~$ sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+Hit:1 http://ru.archive.ubuntu.com/ubuntu focal InRelease
+Hit:2 http://ru.archive.ubuntu.com/ubuntu focal-updates InRelease                                  
+Hit:3 http://ru.archive.ubuntu.com/ubuntu focal-backports InRelease                                
+Hit:4 http://packages.microsoft.com/repos/code stable InRelease                                    
+Hit:5 https://dl.google.com/linux/chrome/deb stable InRelease                                      
+Hit:6 http://security.ubuntu.com/ubuntu focal-security InRelease                                   
+Hit:7 https://packages.microsoft.com/repos/vscode stable InRelease                                 
+Get:8 https://apt.releases.hashicorp.com focal InRelease [9 495 B]
+Get:9 https://apt.releases.hashicorp.com focal/main amd64 Packages [41,1 kB]
+Fetched 50,6 kB in 1s (34,6 kB/s)    
 Reading package lists... Done
-user@sbn04piapp04:~$ sudo apt-get update && sudo apt-get install vault
-Hit:1 http://ru.archive.ubuntu.com/ubuntu focal InRelease       
-Hit:2 http://ru.archive.ubuntu.com/ubuntu focal-updates InRelease
-Hit:3 http://ru.archive.ubuntu.com/ubuntu focal-backports InRelease
-Hit:4 http://ru.archive.ubuntu.com/ubuntu focal-security InRelease                
-Hit:5 https://apt.releases.hashicorp.com focal InRelease                          
-Reading package lists... Done
+user@vboxpc:~$ sudo apt-get update && sudo apt-get install vault
+Hit:1 http://ru.archive.ubuntu.com/ubuntu focal InRelease
+Hit:2 http://ru.archive.ubuntu.com/ubuntu focal-updates InRelease                                  
+Hit:3 http://ru.archive.ubuntu.com/ubuntu focal-backports InRelease                                
+Hit:4 https://dl.google.com/linux/chrome/deb stable InRelease                                      
+Hit:5 http://packages.microsoft.com/repos/code stable InRelease                                    
+Hit:6 http://security.ubuntu.com/ubuntu focal-security InRelease                                   
+Hit:7 https://apt.releases.hashicorp.com focal InRelease                                           
+Hit:8 https://packages.microsoft.com/repos/vscode stable InRelease              
+Reading package lists... Done                             
 Reading package lists... Done
 Building dependency tree       
 Reading state information... Done
 The following NEW packages will be installed:
   vault
-0 upgraded, 1 newly installed, 0 to remove and 15 not upgraded.
-Need to get 69.4 MB of archives.
+0 upgraded, 1 newly installed, 0 to remove and 41 not upgraded.
+Need to get 69,4 MB of archives.
 After this operation, 188 MB of additional disk space will be used.
-Get:1 https://apt.releases.hashicorp.com focal/main amd64 vault amd64 1.9.2 [69.4 MB]
-Fetched 69.4 MB in 1min 39s (702 kB/s)                                                                                
+Get:1 https://apt.releases.hashicorp.com focal/main amd64 vault amd64 1.9.2 [69,4 MB]
+Fetched 69,4 MB in 1min 19s (878 kB/s)                                                             
 Selecting previously unselected package vault.
-(Reading database ... 71567 files and directories currently installed.)
+(Reading database ... 177119 files and directories currently installed.)
 Preparing to unpack .../archives/vault_1.9.2_amd64.deb ...
 Unpacking vault (1.9.2) ...
 Setting up vault (1.9.2) ...
 Generating Vault TLS key and self-signed certificate...
 Generating a RSA private key
-........................................................................................................++++
-.................................................................................................................................................................................................................++++
+..................++++
+.....++++
 writing new private key to 'tls.key'
 -----
 Vault TLS key and self-signed certificate have been generated in '/opt/vault/tls'.
-user@sbn04piapp04:~$ vault
+user@vboxpc:~$ vault
 Usage: vault <command> [args]
 
 Common commands:
@@ -124,11 +137,13 @@ Other commands:
     secrets        Interact with secrets engines
     ssh            Initiate an SSH session
     token          Interact with tokens
-user@sbn04piapp04:~$ 
-
+user@vboxpc:~$ 
+~~~
+### Задание 4
+Cоздайте центр сертификации по инструкции (ссылка) и выпустите сертификат для использования его в настройке веб-сервера nginx (срок жизни сертификата - месяц).
 ~~~
 
-### Задание 1
+~~~
 ### Задание 1
 ### Задание 1
 ### Задание 1
