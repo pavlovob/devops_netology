@@ -140,10 +140,34 @@ Other commands:
 user@vboxpc:~$ 
 ~~~
 ### Задание 4
-Cоздайте центр сертификации по инструкции (ссылка) и выпустите сертификат для использования его в настройке веб-сервера nginx (срок жизни сертификата - месяц).
+Cоздание центра сертификации и выпуск сертификата для nginx (срок жизни сертификата - месяц):  
+Запуск сервера:  
+~~~
+vault server -dev -dev-root-token-id root
+~~~
+Экспорт переменных:  
+~~~
+user@vboxpc:~$ export VAULT_ADDR=http://127.0.0.1:8200
+user@vboxpc:~$ export VAULT_TOKEN=root
+~~~
+Выпуск корневого сертификата:  
+~~~
+user@vboxpc:~$ vault secrets enable pki
+Success! Enabled the pki secrets engine at: pki/
+user@vboxpc:~$ vault secrets tune -max-lease-ttl=87600h pki
+Success! Tuned the secrets engine at: pki/
+user@vboxpc:~$ vault write -field=certificate pki/root/generate/internal \
+>      common_name="example.com" \
+>      ttl=87600h > CA_cert.crt
+user@vboxpc:~$ vault write pki/config/urls \
+>      issuing_certificates="$VAULT_ADDR/v1/pki/ca" \
+>      crl_distribution_points="$VAULT_ADDR/v1/pki/crl"
+Success! Data written to: pki/config/urls
+user@vboxpc:~$ 
 ~~~
 
 ~~~
+~~~
 ### Задание 1
 ### Задание 1
 ### Задание 1
@@ -151,8 +175,6 @@ Cоздайте центр сертификации по инструкции (�
 ### Задание 1
 ### Задание 1
 ### Задание 1
-
-3. Установите hashicorp vault ([инструкция по ссылке](https://learn.hashicorp.com/tutorials/vault/getting-started-install?in=vault/getting-started#install-vault)).
 4. Cоздайте центр сертификации по инструкции ([ссылка](https://learn.hashicorp.com/tutorials/vault/pki-engine?in=vault/secrets-management)) и выпустите сертификат для использования его в настройке веб-сервера nginx (срок жизни сертификата - месяц).
 5. Установите корневой сертификат созданного центра сертификации в доверенные в хостовой системе.
 6. Установите nginx.
