@@ -341,21 +341,32 @@ server {
 Страница сервера:  
 ![image](https://user-images.githubusercontent.com/22905019/147873007-44ba08d7-9190-4f17-9a2a-17487941c5ef.png)  
 ![image](https://user-images.githubusercontent.com/22905019/147873018-fa5791ab-4afe-4279-a287-2104a7693608.png)
-
 ### Задание 9
+Предполагается что сервер Vault запущен в dev режиме отдельным процессом на сервере и не перезапускался после выполнения задач 1-8.  
+Скрипт генерации сертификата:  
+~~~
+#!/bin/bash
+CERT_NAME="/etc/nginx/test.example.com.pem"
+KEY_NAME="/etc/nginx/privatekey.key"
+export VAULT_ADDR=http://127.0.0.1:8200
+export VAULT_TOKEN=root
+vault write -format=json pki_int/issue/example-dot-com common_name="test.example.com" ttl="720h" > cert.json
+cat cert.json | jq -r '.data.certificate' > ${CERT_NAME}
+cat cert.json | jq -r '.data.ca_chain[0]' >> ${CERT_NAME}
+cat cert.json | jq -r '.data.private_key' > ${KEY_NAME}
+systemctl restart nginx 
+rm -f cert.json 
+~~~
 ### Задание 10
-9. Создайте скрипт, который будет генерировать новый сертификат в vault:
-  - генерируем новый сертификат так, чтобы не переписывать конфиг nginx;
-  - перезапускаем nginx для применения нового сертификата.
-10. Поместите скрипт в crontab, чтобы сертификат обновлялся какого-то числа каждого месяца в удобное для вас время.
+Запуск в планировщике cron (от sudo):
+~~~
+sudo crontab -e
+~~~
+![image](https://user-images.githubusercontent.com/22905019/147875265-1adf92f8-f846-479f-a6c0-98a13b79d6cf.png)  
+Работа скрипта (для теста в cron была сделана настройка каждую минуту `* * * * * \etc\nginx\keygen.sh`:  
+![image](https://user-images.githubusercontent.com/22905019/147875330-ce4b1c46-f797-4197-b48d-3a2a4cf19092.png)  
+![image](https://user-images.githubusercontent.com/22905019/147875338-6514435c-3195-4020-a7af-d1e6750abebf.png)  
+Работа cron:  
+![image](https://user-images.githubusercontent.com/22905019/147875373-b7413d7a-996c-4bf0-8900-ca6038a09eb0.png)
 
-## Результат
-
-Результатом курсовой работы должны быть снимки экрана или текст:
-
-- Процесс установки и настройки ufw
-- Процесс установки и выпуска сертификата с помощью hashicorp vault
-- Процесс установки и настройки сервера nginx
-- Страница сервера nginx в браузере хоста не содержит предупреждений 
-- Скрипт генерации нового сертификата работает (сертификат сервера ngnix должен быть "зеленым")
-- Crontab работает (выберите число и время так, чтобы показать что crontab запускается и делает что надо)
+Конец
