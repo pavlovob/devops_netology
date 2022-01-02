@@ -302,19 +302,48 @@ user@vboxpc:~$ sudo apt-add-repository ppa:nginx/stable
 user@vboxpc:~$ sudo apt update
 user@vboxpc:~$ sudo apt install nginx
 ~~~
+### Задание 7
+Настройка NGINX:  
+файл конфигурации `/ect/nginx/sites-available/default`:  
+~~~
+# Virtual Host configuration for example.com
+#
+# You can move that to a different file under sites-available/ and symlink that
+# to sites-enabled/ to enable it.
+#
+server {
+	listen 443 ssl;
 
+	server_name          test.example.com;
+	ssl_ciphers          AES128-SHA:AES256-SHA:RC4-SHA:DES-CBC3-SHA:RC4-MD5;
+	ssl_certificate      test.example.com.pem;
+	ssl_certificate_key  privatekey.key;
+	ssl_protocols        TLSv1 TLSv1.1 TLSv1.2;
+
+	root /var/www/example.com;
+	index index.html;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+}
 ~~~
+в файле `/ect/nginx/test.example.com.pem` находится сгенерированный сертификат сервера и сертификат промежуточного доверенного центра.  
+в файле `/ect/nginx/privatekey.key` находится сгенерированный приватный ключ.    
+на хостовой (точнее другой виртуальтной машине ubuntu 192.168.1.87) установен сгенерированый корневой сертификат (скопирован с сервера 192.168.1.15):  
 ~~~
-### Задание 1
-### Задание 1
-### Задание 1
-### Задание 1
-### Задание 1
-6. Установите nginx.
-7. По инструкции ([ссылка](https://nginx.org/en/docs/http/configuring_https_servers.html)) настройте nginx на https, используя ранее подготовленный сертификат:
-  - можно использовать стандартную стартовую страницу nginx для демонстрации работы сервера;
-  - можно использовать и другой html файл, сделанный вами;
-8. Откройте в браузере на хосте https адрес страницы, которую обслуживает сервер nginx.
+cd /usr/local/share/ca-certificates
+sudo scp user@192.168.1.15:/home/user/CA_cert.crt .
+sudo dpkg-reconfigure ca-certificates
+~~~
+домашняя папка виртуального сервера: `/var/www/example.com`, использована стандартная стартовая страница nginx
+### Задание 8
+Страница сервера:  
+![image](https://user-images.githubusercontent.com/22905019/147873007-44ba08d7-9190-4f17-9a2a-17487941c5ef.png)  
+![image](https://user-images.githubusercontent.com/22905019/147873018-fa5791ab-4afe-4279-a287-2104a7693608.png)
+
+### Задание 9
+### Задание 10
 9. Создайте скрипт, который будет генерировать новый сертификат в vault:
   - генерируем новый сертификат так, чтобы не переписывать конфиг nginx;
   - перезапускаем nginx для применения нового сертификата.
