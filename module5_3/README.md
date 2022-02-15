@@ -21,7 +21,8 @@ ser@wbn04pavlov:~/netology/docker$ sudo docker images
 REPOSITORY       TAG       IMAGE ID       CREATED             SIZE
 pavlovob/nginx   1.0.4     bc7b62d6d98b   About an hour ago   134MB
 debian           latest    04fbdaf87a6a   2 weeks ago         124MB
-centos           latest    5d0da3dc9764   5 months ago        231MBuser@wbn04pavlov:~/netology/docker$ sudo docker run -v /data:/data --name centos -d centos:latest sleep infinity
+centos           latest    5d0da3dc9764   5 months ago        231MB
+user@wbn04pavlov:~/netology/docker$ sudo docker run -v /data:/data --name centos -d centos:latest sleep infinity
 d99516dcdee6ebc5acd08ce1357addd3f8754490e05e904a7de2e8bc4d38afad
 user@wbn04pavlov:~/netology/docker$ sudo docker run -v /data:/data --name debian -d debian:latest sleep infinity
 ed3b7136b8becf6de8bc9a21974bf9c9835239e483909a35ac0ed3cb10cc1afd
