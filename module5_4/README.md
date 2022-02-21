@@ -9,8 +9,8 @@ CMD ["Hey, netology"]
 ```
 Скриншот вывода командной строки после запуска контейнера из вашего базового образа:  
 ![image](https://user-images.githubusercontent.com/22905019/154941425-f400f619-4483-4e08-81f2-3bda3a58434f.png)  
-Ссылку на образ в вашем хранилище docker-hub:  
-[ссылка](https://hub.docker.com/repository/docker/pavlovob/task_5_4_1)
+Ссылка на образ в вашем хранилище docker-hub:  
+[ссылка](https://hub.docker.com/repository/docker/pavlovob/task_5_4_1)  
 
 ## Задача 2 
 
