@@ -14,5 +14,7 @@
 
 Создать вторую ВМ и подключить её к мониторингу развёрнутому на первом сервере.  
 Скриншот из Grafana, на котором будут отображаться метрики добавленного вами сервера:  
-![image](https://user-images.githubusercontent.com/22905019/155484664-3fc479a6-1564-4ce0-aa82-ce8b09fbb3ce.png)
+![image](https://user-images.githubusercontent.com/22905019/155484664-3fc479a6-1564-4ce0-aa82-ce8b09fbb3ce.png)  
+![image](https://user-images.githubusercontent.com/22905019/155484801-5fff6e14-e3c9-475d-8013-b7f1b8756940.png)  
+
 
