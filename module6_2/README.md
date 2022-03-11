@@ -40,7 +40,8 @@ CREATE ROLE "test-admin-user" LOGIN;
 ```
 - предоставьте пользователю test-simple-user права на SELECT/INSERT/UPDATE/DELETE данных таблиц БД test_db  
 ```
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO "test-simple-user";
+GRANT SELECT, INSERT, UPDATE, DELETE ON orders TO "test-simple-user";
+GRANT SELECT, INSERT, UPDATE, DELETE ON clients TO "test-simple-user";
 ```
 Таблица orders:
 - id (serial primary key)
@@ -67,9 +68,12 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO "test-sim
 \d clients;
 ```
 ![image](https://user-images.githubusercontent.com/22905019/157864405-44c9ff57-a0ea-49fa-9e8a-caa5cab3447c.png)  
-- SQL-запрос для выдачи списка пользователей с правами над таблицами test_db
-- 
-- список пользователей с правами над таблицами test_db
+- SQL-запрос для выдачи списка пользователей с правами над таблицами test_db  
+```
+select * from information_schema.role_table_grants where grantee like '%test%';
+```
+- список пользователей с правами над таблицами test_db  
+![image](https://user-images.githubusercontent.com/22905019/157880627-ab6ec9db-2efc-493d-a1b5-d550bf6e8552.png)  
 
 ## Задача 3
 
@@ -84,6 +88,10 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO "test-sim
 |Книга| 500 |
 |Монитор| 7000|
 |Гитара| 4000|
+```
+INSERT INTO orders (id,name, price) VALUES(1,'Шоколад',10),(2,'Принтер',3000),(3,'Книга',500),(4,'Монитор',7000),(5,'Гитара',4000);  
+```
+![image](https://user-images.githubusercontent.com/22905019/157881967-3a96dce6-d505-44b8-9928-af8d6ad1cf8e.png)  
 
 Таблица clients
 
