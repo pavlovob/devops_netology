@@ -33,6 +33,7 @@ CREATE TABLE clients(
 ```
 GRANT ALL PRIVILEGES ON DATABASE test_db TO "test-admin-user";
 ```
+
 - создайте пользователя test-simple-user  
 ```
 CREATE ROLE "test-admin-user" LOGIN;
@@ -54,9 +55,20 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO "test-sim
 
 Приведите:
 - итоговый список БД после выполнения пунктов выше,  
-![image](https://user-images.githubusercontent.com/22905019/157863133-35362a31-7554-49de-98f6-73c79a467cc8.png)
-- описание таблиц (describe)
+![image](https://user-images.githubusercontent.com/22905019/157863133-35362a31-7554-49de-98f6-73c79a467cc8.png)  
+- описание таблиц (describe)  
+```
+\c test_db;
+\d orders;
+```
+![image](https://user-images.githubusercontent.com/22905019/157864576-2097d741-c333-4c70-a2d3-480573e332e2.png)  
+
+```
+\d clients;
+```
+![image](https://user-images.githubusercontent.com/22905019/157864405-44c9ff57-a0ea-49fa-9e8a-caa5cab3447c.png)  
 - SQL-запрос для выдачи списка пользователей с правами над таблицами test_db
+- 
 - список пользователей с правами над таблицами test_db
 
 ## Задача 3
