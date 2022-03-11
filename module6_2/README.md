@@ -11,9 +11,9 @@ user@user-pc:~$ docker run --name=postgres1  -e POSTGRES_PASSWORD=postgres -v /h
 В БД из задачи 1: 
 - создайте пользователя test-admin-user и БД test_db
 ```
+CREATE ROLE "test-admin-user" SUPERUSER LOGIN;
 CREATE DATABASE test_db;
 c\ test_db;
-CREATE USER "test-admin-user";
 ```
 - в БД test_db создайте таблицу orders и clients (спeцификация таблиц ниже)
 ```
@@ -31,14 +31,16 @@ CREATE TABLE clients(
 ```
 - предоставьте привилегии на все операции пользователю test-admin-user на таблицы БД test_db
 ```
+GRANT ALL PRIVILEGES ON DATABASE test_db TO "test-admin-user";
 ```
 - создайте пользователя test-simple-user  
 ```
+CREATE ROLE "test-admin-user" LOGIN;
 ```
 - предоставьте пользователю test-simple-user права на SELECT/INSERT/UPDATE/DELETE данных таблиц БД test_db  
 ```
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO "test-simple-user";
 ```
-
 Таблица orders:
 - id (serial primary key)
 - наименование (string)
