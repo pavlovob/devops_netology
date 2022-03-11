@@ -33,7 +33,7 @@ CREATE TABLE clients(
 ```
 GRANT ALL PRIVILEGES ON DATABASE test_db TO "test-admin-user";
 ```
-
+хотя этого можно было не делать, т.к. пользователь SUPERUSER
 - создайте пользователя test-simple-user  
 ```
 CREATE ROLE "test-admin-user" LOGIN;
