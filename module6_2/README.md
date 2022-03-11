@@ -10,6 +10,10 @@ user@user-pc:~$ docker run --name=postgres1  -e POSTGRES_PASSWORD=postgres -v /h
 ## Задача 2
 В БД из задачи 1: 
 - создайте пользователя test-admin-user и БД test_db
+```
+CREATE DATABASE test_db;
+CREATE USER "test-admin-user";
+```
 - в БД test_db создайте таблицу orders и clients (спeцификация таблиц ниже)
 - предоставьте привилегии на все операции пользователю test-admin-user на таблицы БД test_db
 - создайте пользователя test-simple-user  
