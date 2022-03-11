@@ -15,9 +15,29 @@ CREATE DATABASE test_db;
 CREATE USER "test-admin-user";
 ```
 - в БД test_db создайте таблицу orders и clients (спeцификация таблиц ниже)
+```
+c\ test_db
+CREATE TABLE orders(
+    id integer PRIMARY KEY,
+    name text,
+    price integer);
+```
+```
+CREATE TABLE clients(
+    id integer PRIMARY KEY,
+    fio text,
+    country text,
+    order_id integer REFERENCES orders (id)); 
+```
 - предоставьте привилегии на все операции пользователю test-admin-user на таблицы БД test_db
+```
+```
 - создайте пользователя test-simple-user  
-- предоставьте пользователю test-simple-user права на SELECT/INSERT/UPDATE/DELETE данных таблиц БД test_db
+```
+```
+- предоставьте пользователю test-simple-user права на SELECT/INSERT/UPDATE/DELETE данных таблиц БД test_db  
+```
+```
 
 Таблица orders:
 - id (serial primary key)
