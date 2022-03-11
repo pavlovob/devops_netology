@@ -12,11 +12,11 @@ user@user-pc:~$ docker run --name=postgres1  -e POSTGRES_PASSWORD=postgres -v /h
 - создайте пользователя test-admin-user и БД test_db
 ```
 CREATE DATABASE test_db;
+c\ test_db;
 CREATE USER "test-admin-user";
 ```
 - в БД test_db создайте таблицу orders и clients (спeцификация таблиц ниже)
 ```
-c\ test_db
 CREATE TABLE orders(
     id integer PRIMARY KEY,
     name text,
