@@ -53,7 +53,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO "test-sim
 - заказ (foreign key orders)
 
 Приведите:
-- итоговый список БД после выполнения пунктов выше,
+- итоговый список БД после выполнения пунктов выше,  
+![image](https://user-images.githubusercontent.com/22905019/157863133-35362a31-7554-49de-98f6-73c79a467cc8.png)
 - описание таблиц (describe)
 - SQL-запрос для выдачи списка пользователей с правами над таблицами test_db
 - список пользователей с правами над таблицами test_db
