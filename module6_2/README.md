@@ -156,16 +156,10 @@ docker run -d --name=postgres2  -e POSTGRES_PASSWORD=postgres  -v /home/user/pos
 ~~~
 user@user-pc:~$ docker exec -it postgres2 bash
 root@73d9f85496d7:/# psql -Upostgres
+postgres=# CREATE DATABASE test_db;
 ~~~
-![image](https://user-images.githubusercontent.com/22905019/158148542-873fbded-4c61-4c74-a465-ca29d0e11e8e.png)  
-
-
-Приведите список операций, который вы применяли для бэкапа данных и восстановления. 
-
----
-
-### Как cдавать задание
-
-Выполненное домашнее задание пришлите ссылкой на .md-файл в вашем репозитории.
-
----
+![image](https://user-images.githubusercontent.com/22905019/158149344-79060050-963b-4730-905b-350c0e0a6e4b.png)  
+```
+root@73d9f85496d7:/# psql -Upostgres test_db < /var/lib/postgresql/backups/backup.bck
+```
+![image](https://user-images.githubusercontent.com/22905019/158149887-95c715a4-0fb7-46d3-a0e1-e070a8d73a1d.png)  
