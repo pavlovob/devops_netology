@@ -148,11 +148,17 @@ pg_dump -U 'test-admin-user' -d test_db > /var/lib/postgresql/backups/backup.bck
 ![image](https://user-images.githubusercontent.com/22905019/158145214-f4208f61-c40b-4431-ae0b-babec33c477d.png)  
 Поднимите новый пустой контейнер с PostgreSQL.  
 ```
-docker run -d --name=postgres2  -e POSTGRES_PASSWORD=postgres -v /home/user/postgersdb:/var/lib/postgresql/data -v /home/user/postgresbck:/var/lib/postgresql/backups postgres:12
+docker run -d --name=postgres2  -e POSTGRES_PASSWORD=postgres  -v /home/user/postgresbck:/var/lib/postgresql/backups postgres:12
 ```
-![image](https://user-images.githubusercontent.com/22905019/158146492-12d4d3a8-3b46-4e62-8105-c023bfc73d33.png)  
+![image](https://user-images.githubusercontent.com/22905019/158148043-386ae630-0de3-4479-9047-865cb3c76e64.png)  
 
-Восстановите БД test_db в новом контейнере.
+Восстановите БД test_db в новом контейнере.  
+~~~
+user@user-pc:~$ docker exec -it postgres2 bash
+root@73d9f85496d7:/# psql -Upostgres
+~~~
+![image](https://user-images.githubusercontent.com/22905019/158148542-873fbded-4c61-4c74-a465-ca29d0e11e8e.png)  
+
 
 Приведите список операций, который вы применяли для бэкапа данных и восстановления. 
 
