@@ -104,7 +104,7 @@ INSERT INTO orders (id,name, price) VALUES(1,'Шоколад',10),(2,'Принт
 ```
 INSERT INTO clients VALUES (1, 'Иванов Иван Иванович', 'USA'), (2, 'Петров Петр Петрович', 'Canada'), (3, 'Иоганн Себастьян Бах', 'Japan'), (4, 'Ронни Джеймс Дио', 'Russia'), (5, 'Ritchie Blackmore', 'Russia');
 ```
-Используя SQL синтаксис вычислите количество записей для каждой таблицы 
+Используя SQL синтаксис вычислите количество записей для каждой таблицы  
 ![image](https://user-images.githubusercontent.com/22905019/158138864-e6666784-f409-42f1-8d68-d87ea7a68f98.png)  
 
 ## Задача 4
