@@ -140,11 +140,17 @@ UPDATE clients SET order_id = (SELECT id FROM orders WHERE name = 'Гитара'
 - Кол-во байт в строке запроса: 72;
 ## Задача 6
 
-Создайте бэкап БД test_db и поместите его в volume, предназначенный для бэкапов (см. Задачу 1).
-
-Остановите контейнер с PostgreSQL (но не удаляйте volumes).
-
-Поднимите новый пустой контейнер с PostgreSQL.
+Создайте бэкап БД test_db и поместите его в volume, предназначенный для бэкапов (см. Задачу 1).  
+```
+pg_dump -U 'test-admin-user' -d test_db > /var/lib/postgresql/backups/backup.bck
+```
+Остановите контейнер с PostgreSQL (но не удаляйте volumes).  
+![image](https://user-images.githubusercontent.com/22905019/158145214-f4208f61-c40b-4431-ae0b-babec33c477d.png)  
+Поднимите новый пустой контейнер с PostgreSQL.  
+```
+docker run -d --name=postgres2  -e POSTGRES_PASSWORD=postgres -v /home/user/postgersdb:/var/lib/postgresql/data -v /home/user/postgresbck:/var/lib/postgresql/backups postgres:12
+```
+![image](https://user-images.githubusercontent.com/22905019/158146492-12d4d3a8-3b46-4e62-8105-c023bfc73d33.png)  
 
 Восстановите БД test_db в новом контейнере.
 
