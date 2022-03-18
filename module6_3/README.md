@@ -5,9 +5,10 @@
 docker run -d --name=mysql  -e MYSQL_ROOT_PASSWORD=mysql -v /home/user/mysql:/var/lib/mysql mysql:8.0
 ```
 Изучите [бэкап БД](https://github.com/netology-code/virt-homeworks/tree/master/06-db-03-mysql/test_data) и 
-восстановитесь из него.
+восстановитесь из него.  
+- дамп выложен в volume  
 ```
-Файл с дампом выложен в volume
+mysql> create database test_db;
 ```
 ![image](https://user-images.githubusercontent.com/22905019/159044762-2f8f4e53-fb53-4dbe-9c78-5229b724b81a.png)  
 Перейдите в управляющую консоль `mysql` внутри контейнера.
