@@ -61,18 +61,21 @@ select table_name, engine from information_schema.tables where table_schema = 't
 Изучите файл `my.cnf` в директории /etc/mysql.
 
 Измените его согласно ТЗ (движок InnoDB):
-- Скорость IO важнее сохранности данных
-- Нужна компрессия таблиц для экономии места на диске
-- Размер буффера с незакомиченными транзакциями 1 Мб
-- Буффер кеширования 30% от ОЗУ
-- Размер файла логов операций 100 Мб
+Файл my.cnf:  
+```
+[mysqld]
+pid-file        = /var/run/mysqld/mysqld.pid
+socket          = /var/run/mysqld/mysqld.sock
+datadir         = /var/lib/mysql
+secure-file-priv= NULL
 
-Приведите в ответе измененный файл `my.cnf`.
+# Custom config should go here
+!includedir /etc/mysql/conf.d/
 
----
-
-### Как оформить ДЗ?
-
-Выполненное домашнее задание пришлите ссылкой на .md-файл в вашем репозитории.
-
+innodb_flush_log_at_trx_commit = 0 
+innodb_file_format=Barracuda
+innodb_log_buffer_size	= 1M
+key_buffer_size = 1229М
+max_binlog_size	= 100M
+```
 ---
