@@ -45,11 +45,16 @@ select * from INFORMATION_SCHEMA.USER_ATTRIBUTES where USER='test';
 ## Задача 3
 Установите профилирование `SET profiling = 1`.
 Изучите вывод профилирования команд `SHOW PROFILES;`.
-Исследуйте, какой `engine` используется в таблице БД `test_db` и **приведите в ответе**.
+Исследуйте, какой `engine` используется в таблице БД `test_db`  
+```
+select table_name, engine from information_schema.tables where table_schema = 'test_db';
+```
+![image](https://user-images.githubusercontent.com/22905019/159266401-2312c035-4d15-4fa3-942a-8ee7f199fa46.png)  
 
 Измените `engine` и **приведите время выполнения и запрос на изменения из профайлера в ответе**:
 - на `MyISAM`
 - на `InnoDB`
+![image](https://user-images.githubusercontent.com/22905019/159266795-3a91c5b9-7467-4976-bb8d-7dcfc65b2e69.png)  
 
 ## Задача 4 
 
