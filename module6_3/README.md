@@ -29,9 +29,13 @@ mysql> create database test_db;
 - аттрибуты пользователя:
     - Фамилия "Pretty"
     - Имя "James"
-
-Предоставьте привелегии пользователю `test` на операции SELECT базы `test_db`.
-    
+```
+CREATE USER test IDENTIFIED WITH mysql_native_password BY 'test-pass' WITH MAX_QUERIES_PER_HOUR 100 PASSWORD EXPIRE INTERVAL 180 DAY FAILED_LOGIN_ATTEMPTS 3 ATTRIBUTE '{"Surname":"Pretty",:"Name":"James"}';
+```
+Предоставьте привелегии пользователю `test` на операции SELECT базы `test_db`.  
+```
+GRANT 
+```
 Используя таблицу INFORMATION_SCHEMA.USER_ATTRIBUTES получите данные по пользователю `test` и 
 **приведите в ответе к задаче**.
 
