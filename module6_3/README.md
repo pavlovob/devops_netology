@@ -34,16 +34,17 @@ CREATE USER test IDENTIFIED WITH mysql_native_password BY 'test-pass' WITH MAX_Q
 ```
 Предоставьте привелегии пользователю `test` на операции SELECT базы `test_db`.  
 ```
-GRANT 
+GRANT SELECT ON test_db.* to test; 
 ```
-Используя таблицу INFORMATION_SCHEMA.USER_ATTRIBUTES получите данные по пользователю `test` и 
-**приведите в ответе к задаче**.
+Используя таблицу INFORMATION_SCHEMA.USER_ATTRIBUTES получите данные по пользователю `test`  
+```
+select * from INFORMATION_SCHEMA.USER_ATTRIBUTES where USER='test';
+```
+![image](https://user-images.githubusercontent.com/22905019/159237574-3e2fd120-157d-4741-b2ad-1d70cea38260.png)  
 
 ## Задача 3
-
 Установите профилирование `SET profiling = 1`.
 Изучите вывод профилирования команд `SHOW PROFILES;`.
-
 Исследуйте, какой `engine` используется в таблице БД `test_db` и **приведите в ответе**.
 
 Измените `engine` и **приведите время выполнения и запрос на изменения из профайлера в ответе**:
