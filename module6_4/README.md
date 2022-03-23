@@ -31,20 +31,21 @@ docker run --name=postgres  -e POSTGRES_PASSWORD=postgres -v /home/user/postgres
 ```
 ## Задача 2
 
-Используя `psql` создайте БД `test_database`.
-
+Используя `psql` создайте БД `test_database`.  
+![image](https://user-images.githubusercontent.com/22905019/159703354-c806aef5-0713-4e69-b2ed-dfbd4644e7c1.png)  
 Изучите [бэкап БД](https://github.com/netology-code/virt-homeworks/tree/master/06-db-04-postgresql/test_data).
 
-Восстановите бэкап БД в `test_database`.
-
-Перейдите в управляющую консоль `psql` внутри контейнера.
-
+Восстановите бэкап БД в `test_database`.  
+![image](https://user-images.githubusercontent.com/22905019/159705201-5ba5da9a-edbf-4da0-adef-a9274627bbb7.png)  
+Перейдите в управляющую консоль `psql` внутри контейнера.  
+```
+psql -U postgres
+```
 Подключитесь к восстановленной БД и проведите операцию ANALYZE для сбора статистики по таблице.
-
+![image](https://user-images.githubusercontent.com/22905019/159705562-983fbc21-ba7a-4892-9d5a-173e2e6b390c.png)  
 Используя таблицу [pg_stats](https://postgrespro.ru/docs/postgresql/12/view-pg-stats), найдите столбец таблицы `orders` 
-с наибольшим средним значением размера элементов в байтах.
-
-**Приведите в ответе** команду, которую вы использовали для вычисления и полученный результат.
+с наибольшим средним значением размера элементов в байтах.  
+![image](https://user-images.githubusercontent.com/22905019/159708380-50233681-169a-4a08-a72e-a7539384830a.png)  
 
 ## Задача 3
 
