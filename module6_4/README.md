@@ -23,7 +23,7 @@ docker run --name=postgres  -e POSTGRES_PASSWORD=postgres -v /home/user/postgres
 ```
 - вывода описания содержимого таблиц
 ```
-\dd
+\dS
 ```
 - выхода из psql
 ```
