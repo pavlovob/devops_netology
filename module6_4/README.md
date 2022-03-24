@@ -54,7 +54,7 @@ psql -U postgres
 провести разбиение таблицы на 2 (шардировать на orders_1 - price>499 и orders_2 - price<=499).
 
 Предложите SQL-транзакцию для проведения данной операции.  
-Создал SQL скрипт:  
+Создал SQL скрипт 'shard.sql', положил в 'volume': /home/user/postgres/db:  
 ```
 ALTER TABLE IF EXISTS public.orders RENAME TO orders_old;
 CREATE TABLE IF NOT EXISTS public.orders
@@ -75,14 +75,12 @@ insert into orders (id, title, price) select * from orders_old;
 - Можно, только в определении таблице Orders тогда нужно было включить переметр "...partition by range (price);"  
 ## Задача 4
 
-Используя утилиту `pg_dump` создайте бекап БД `test_database`.
-
+Используя утилиту `pg_dump` создайте бекап БД `test_database`.  
+```
+pg_dump -U 'postgres' -d test_database > /var/lib/postgresql/data/backup.bck
+```
 Как бы вы доработали бэкап-файл, чтобы добавить уникальность значения столбца `title` для таблиц `test_database`?
-
----
-
-### Как cдавать задание
-
-Выполненное домашнее задание пришлите ссылкой на .md-файл в вашем репозитории.
-
----
+- В файл бэкапа добавить после создания таблицы orders секцию:  
+```
+CREATE UNIQUE INDEX title_idx ON orders (title);
+```
