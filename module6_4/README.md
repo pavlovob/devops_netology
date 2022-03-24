@@ -53,10 +53,26 @@ psql -U postgres
 поиск по ней занимает долгое время. Вам, как успешному выпускнику курсов DevOps в нетологии предложили
 провести разбиение таблицы на 2 (шардировать на orders_1 - price>499 и orders_2 - price<=499).
 
-Предложите SQL-транзакцию для проведения данной операции.
+Предложите SQL-транзакцию для проведения данной операции.  
+Создал SQL скрипт:  
+```
+ALTER TABLE IF EXISTS public.orders RENAME TO orders_old;
+CREATE TABLE IF NOT EXISTS public.orders
+(
+    id integer NOT NULL DEFAULT nextval('orders_id_seq'::regclass),
+    title character varying(80) COLLATE pg_catalog."default" NOT NULL,
+    price integer DEFAULT 0
+) partition by range (price);
+CREATE TABLE IF NOT EXISTS public.orders_1 PARTITION OF orders FOR VALUES FROM (500) TO (2147483647);
+CREATE TABLE IF NOT EXISTS public.orders_2 PARTITION OF orders FOR VALUES FROM (0) TO (500);
+insert into orders (id, title, price) select * from orders_old;
+```
+Запуск и результаты:
+![image](https://user-images.githubusercontent.com/22905019/159880441-829e5e55-85f1-4613-b8b4-5ef86f014ecf.png)  
+![image](https://user-images.githubusercontent.com/22905019/159881596-07fd5c7c-a4d2-4289-b31e-ef097a034a03.png)  
 
-Можно ли было изначально исключить "ручное" разбиение при проектировании таблицы orders?
-
+Можно ли было изначально исключить "ручное" разбиение при проектировании таблицы orders?  
+- Можно, только в определении таблице Orders тогда нужно было включить переметр "...partition by range (price);"  
 ## Задача 4
 
 Используя утилиту `pg_dump` создайте бекап БД `test_database`.
