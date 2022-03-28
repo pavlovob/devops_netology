@@ -1,11 +1,4 @@
-# Домашнее задание к занятию "6.5. Elasticsearch"
-
 ## Задача 1
-
-В этом задании вы потренируетесь в:
-- установке elasticsearch
-- первоначальном конфигурировании elastcisearch
-- запуске elasticsearch в docker
 
 Используя докер образ [centos:7](https://hub.docker.com/_/centos) как базовый и 
 [документацию по установке и запуску Elastcisearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/targz.html):
