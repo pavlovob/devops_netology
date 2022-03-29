@@ -1,9 +1,10 @@
 ## Задача 1
 
 Используя докер образ [centos:7](https://hub.docker.com/_/centos) как базовый и 
-[документацию по установке и запуску Elastcisearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/targz.html):
+[документацию по установке и запуску Elastcisearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/targz.html):  
 
 - составьте Dockerfile-манифест для elasticsearch
+
 содержимое elasticsearch.yml файла:  
 ```
 cluster.name: "docker-cluster"
