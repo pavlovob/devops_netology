@@ -37,6 +37,11 @@ CMD ["elasticsearch"]
 EXPOSE 9200 9300
 ```
 - соберите docker-образ и сделайте `push` в ваш docker.io репозиторий:  
+
+![image](https://user-images.githubusercontent.com/22905019/160661306-fbb2004c-8094-492a-b85d-8b99dabed964.png)
+
+![image](https://user-images.githubusercontent.com/22905019/160661443-8d6da3e4-953e-4039-92d6-7163750d4a0d.png)
+
 ![image](https://user-images.githubusercontent.com/22905019/160658872-7dd7869c-f770-4d6a-b9c4-6d4aa87e54d5.png)  
 [Ссылка на образ](https://hub.docker.com/repository/docker/pavlovob/netology_elastic65):  
 - запустите контейнер из получившегося образа и выполните запрос пути `/` c хост-машины:  
