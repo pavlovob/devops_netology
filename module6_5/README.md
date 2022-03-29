@@ -4,25 +4,43 @@
 [документацию по установке и запуску Elastcisearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/targz.html):
 
 - составьте Dockerfile-манифест для elasticsearch
-- соберите docker-образ и сделайте `push` в ваш docker.io репозиторий
-- запустите контейнер из получившегося образа и выполните запрос пути `/` c хост-машины
-
-Требования к `elasticsearch.yml`:
-- данные `path` должны сохраняться в `/var/lib`
-- имя ноды должно быть `netology_test`
-
-В ответе приведите:
-- текст Dockerfile манифеста
-- ссылку на образ в репозитории dockerhub
-- ответ `elasticsearch` на запрос пути `/` в json виде
-
-Подсказки:
-- возможно вам понадобится установка пакета perl-Digest-SHA для корректной работы пакета shasum
-- при сетевых проблемах внимательно изучите кластерные и сетевые настройки в elasticsearch.yml
-- при некоторых проблемах вам поможет docker директива ulimit
-- elasticsearch в логах обычно описывает проблему и пути ее решения
-
-Далее мы будем работать с данным экземпляром elasticsearch.
+содержимое elasticsearch.yml файла:  
+```
+cluster.name: "docker-cluster"
+network.host: 0.0.0.0
+node.name: "netology_test"
+xpack.security.enabled: false
+http.port: 9200
+path.data: /var/lib/elasticsearch
+path.logs: /var/log/elasticsearch
+```
+содержимое Dockerfile:  
+```
+FROM centos:7
+MAINTAINER Oleg_Pavlov
+RUN groupadd -g 1000 elasticsearch && useradd elasticsearch -u 1000 -g 1000
+RUN yum -y update --nogpgcheck
+RUN yum -y install wget gpg java-1.8.0-openjdk.x86_64 && yum clean all
+RUN wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.9.2-x86_64.rpm --no-check-certificate
+RUN rpm -ivh elasticsearch-7.9.2-x86_64.rpm
+WORKDIR /usr/share/elasticsearch
+RUN set -ex && for path in data logs config config/scripts; do \
+        mkdir -p "$path"; \
+        chown -R elasticsearch:elasticsearch "$path"; \
+    done
+COPY elasticsearch.yml /usr/share/elasticsearch/config/
+RUN chown -R elasticsearch:elasticsearch /usr/share/elasticsearch
+USER elasticsearch
+ENV PATH=$PATH:/usr/share/elasticsearch/bin
+CMD ["elasticsearch"]
+EXPOSE 9200 9300
+```
+- соберите docker-образ и сделайте `push` в ваш docker.io репозиторий:  
+![image](https://user-images.githubusercontent.com/22905019/160658872-7dd7869c-f770-4d6a-b9c4-6d4aa87e54d5.png)  
+[Ссылка на образ](https://hub.docker.com/repository/docker/pavlovob/netology_elastic65):  
+- запустите контейнер из получившегося образа и выполните запрос пути `/` c хост-машины:  
+![image](https://user-images.githubusercontent.com/22905019/160659686-f5c08db5-ad8f-4eb9-9996-8cabeb07d6d0.png)  
+![image](https://user-images.githubusercontent.com/22905019/160660496-466a6bd9-4e60-455d-9868-49e037a98b37.png)  
 
 ## Задача 2
 
