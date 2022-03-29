@@ -66,26 +66,61 @@ EXPOSE 9200 9300
 | ind-1| 0 | 1 |
 | ind-2 | 1 | 2 |
 | ind-3 | 2 | 4 |
-
+```
+[elasticsearch@3e58a67ff06c elasticsearch]$ curl -X PUT "localhost:9200/ind-1?pretty" -H 'Content-Type: application/json' -d'
+> {
+>   "settings": {
+>     "number_of_shards": 1,
+>     "number_of_replicas": 0
+>   }
+> }
+> '
+{
+  "acknowledged" : true,
+  "shards_acknowledged" : true,
+  "index" : "ind-1"
+}
+[elasticsearch@3e58a67ff06c elasticsearch]$ curl -X PUT "localhost:9200/ind-2?pretty" -H 'Content-Type: application/json' -d'
+> {
+>   "settings": {
+>     "number_of_shards": 2,
+>     "number_of_replicas": 1
+>   }
+> }
+> '
+{
+  "acknowledged" : true,
+  "shards_acknowledged" : true,
+  "index" : "ind-2"
+}
+[elasticsearch@3e58a67ff06c elasticsearch]$ curl -X PUT "localhost:9200/ind-3?pretty" -H 'Content-Type: application/json' -d'
+> {
+>   "settings": {
+>     "number_of_shards": 4,
+>     "number_of_replicas": 2
+>   }
+> }
+> '
+{
+  "acknowledged" : true,
+  "shards_acknowledged" : true,
+  "index" : "ind-3"
+}
+[elasticsearch@3e58a67ff06c elasticsearch]$ 
+```
 Получите список индексов и их статусов, используя API и **приведите в ответе** на задание.
 
+![image](https://user-images.githubusercontent.com/22905019/160665046-e6011220-79c8-4717-b830-31e4a88e2571.png)
+
 Получите состояние кластера `elasticsearch`, используя API.
+
+![image](https://user-images.githubusercontent.com/22905019/160666055-b09f5729-c4a1-44b5-be8b-d474454a8ac3.png)
 
 Как вы думаете, почему часть индексов и кластер находится в состоянии yellow?
 
 Удалите все индексы.
 
-**Важно**
-
-При проектировании кластера elasticsearch нужно корректно рассчитывать количество реплик и шард,
-иначе возможна потеря данных индексов, вплоть до полной, при деградации системы.
-
 ## Задача 3
-
-В данном задании вы научитесь:
-- создавать бэкапы данных
-- восстанавливать индексы из бэкапов
-
 Создайте директорию `{путь до корневой директории с elasticsearch в образе}/snapshots`.
 
 Используя API [зарегистрируйте](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshots-register-repository.html#snapshots-register-repository) 
@@ -109,11 +144,4 @@ EXPOSE 9200 9300
 
 Подсказки:
 - возможно вам понадобится доработать `elasticsearch.yml` в части директивы `path.repo` и перезапустить `elasticsearch`
-
----
-
-### Как cдавать задание
-
-Выполненное домашнее задание пришлите ссылкой на .md-файл в вашем репозитории.
-
----
+  
