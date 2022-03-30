@@ -28,12 +28,31 @@ ENV PATH=$PATH:/usr/share/elasticsearch/bin
 CMD ["elasticsearch"]
 ```
 - соберите docker-образ и сделайте `push` в ваш docker.io репозиторий:  
+```
+user@user-pc:~/elastic$ docker build -t esi:01 .
+Sending build context to Docker daemon  47.62kB
+Step 1/18 : FROM centos:7
+ ---> eeb6ee3f44bd
+Step 2/18 : MAINTAINER Oleg_Pavlov
+ ---> Using cache
+ ---> 9451869baf64
+....................
+Removing intermediate container c7541d4d91e0
+ ---> 1871497e0bf9
+Successfully built 1871497e0bf9
+Successfully tagged esi:01
+```
+```
+user@user-pc:~/elastic$ docker tag 1871497e0bf9 pavlovob/netology_es:01
+user@user-pc:~/elastic$ docker login -u pavlovob
+Password: 
+WARNING! Your password will be stored unencrypted in /home/user/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
 
-![image](https://user-images.githubusercontent.com/22905019/160661306-fbb2004c-8094-492a-b85d-8b99dabed964.png)
+Login Succeeded
 
-![image](https://user-images.githubusercontent.com/22905019/160661443-8d6da3e4-953e-4039-92d6-7163750d4a0d.png)
-
-![image](https://user-images.githubusercontent.com/22905019/160658872-7dd7869c-f770-4d6a-b9c4-6d4aa87e54d5.png)
+```
 
 [Ссылка на образ](https://hub.docker.com/repository/docker/pavlovob/netology_elastic65)
 
