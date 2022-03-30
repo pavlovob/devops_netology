@@ -30,27 +30,10 @@ CMD ["elasticsearch"]
 
 ![image](https://user-images.githubusercontent.com/22905019/160901532-2a5fbfbe-cddc-4f67-abcb-182e26964991.png)
 
-
-- запустите контейнер из получившегося образа и выполните запрос пути `/` c хост-машины:  
-![image](https://user-images.githubusercontent.com/22905019/160659686-f5c08db5-ad8f-4eb9-9996-8cabeb07d6d0.png)  
-
-![image](https://user-images.githubusercontent.com/22905019/160660496-466a6bd9-4e60-455d-9868-49e037a98b37.png)  
-
 ## Задача 2
 
-В этом задании вы научитесь:
-- создавать и удалять индексы
-- изучать состояние кластера
-- обосновывать причину деградации доступности данных
+добавьте в elasticsearch 3 индекса, в соответствии со таблицей:
 
-Ознакомтесь с [документацией](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-create-index.html) 
-и добавьте в `elasticsearch` 3 индекса, в соответствии со таблицей:
-
-| Имя | Количество реплик | Количество шард |
-|-----|-------------------|-----------------|
-| ind-1| 0 | 1 |
-| ind-2 | 1 | 2 |
-| ind-3 | 2 | 4 |
 ```
 [elasticsearch@3e58a67ff06c elasticsearch]$ curl -X PUT "localhost:9200/ind-1?pretty" -H 'Content-Type: application/json' -d'
 > {
