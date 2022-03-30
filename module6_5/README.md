@@ -5,36 +5,27 @@
 
 - составьте Dockerfile-манифест для elasticsearch
 
-содержимое elasticsearch.yml файла:  
-```
-cluster.name: "docker-cluster"
-network.host: 0.0.0.0
-node.name: "netology_test"
-xpack.security.enabled: false
-http.port: 9200
-path.data: /var/lib/elasticsearch
-path.logs: /var/log/elasticsearch
-```
 содержимое Dockerfile:  
 ```
 FROM centos:7
 MAINTAINER Oleg_Pavlov
 RUN groupadd -g 1000 elasticsearch && useradd elasticsearch -u 1000 -g 1000
+RUN mkdir /var/lib/elasticsearch
+RUN mkdir /var/log/elasticsearch
 RUN yum -y update --nogpgcheck
 RUN yum -y install wget gpg java-1.8.0-openjdk.x86_64 && yum clean all
 RUN wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.9.2-x86_64.rpm --no-check-certificate
 RUN rpm -ivh elasticsearch-7.9.2-x86_64.rpm
+RUN chown -R elasticsearch:elasticsearch /var/lib/elasticsearch
+RUN chown -R elasticsearch:elasticsearch /var/log/elasticsearch
+RUN chown -R elasticsearch:elasticsearch /usr/share/elasticsearch/
+COPY elasticsearch.yml /etc/elasticsearch/
+RUN chown -R elasticsearch:elasticsearch /etc/elasticsearch/
 WORKDIR /usr/share/elasticsearch
-RUN set -ex && for path in data logs config config/scripts; do \
-        mkdir -p "$path"; \
-        chown -R elasticsearch:elasticsearch "$path"; \
-    done
-COPY elasticsearch.yml /usr/share/elasticsearch/config/
-RUN chown -R elasticsearch:elasticsearch /usr/share/elasticsearch
+EXPOSE 9200 9300
 USER elasticsearch
 ENV PATH=$PATH:/usr/share/elasticsearch/bin
 CMD ["elasticsearch"]
-EXPOSE 9200 9300
 ```
 - соберите docker-образ и сделайте `push` в ваш docker.io репозиторий:  
 
