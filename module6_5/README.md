@@ -1,60 +1,35 @@
 ## Задача 1
 
-Используя докер образ [centos:7](https://hub.docker.com/_/centos) как базовый и 
-[документацию по установке и запуску Elastcisearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/targz.html):  
+текст Dockerfile манифеста
 
-- составьте Dockerfile-манифест для elasticsearch
-
-содержимое Dockerfile:  
 ```
 FROM centos:7
 MAINTAINER Oleg_Pavlov
 RUN groupadd -g 1000 elasticsearch && useradd elasticsearch -u 1000 -g 1000
-RUN mkdir /var/lib/elasticsearch
-RUN mkdir /var/log/elasticsearch
+RUN mkdir /var/lib/elasticsearch && mkdir /var/log/elasticsearch
+COPY elasticsearch.yml /etc/elasticsearch/
 RUN yum -y update --nogpgcheck
 RUN yum -y install wget gpg java-1.8.0-openjdk.x86_64 && yum clean all
 RUN wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.9.2-x86_64.rpm --no-check-certificate
 RUN rpm -ivh elasticsearch-7.9.2-x86_64.rpm
-RUN chown -R elasticsearch:elasticsearch /var/lib/elasticsearch
-RUN chown -R elasticsearch:elasticsearch /var/log/elasticsearch
-RUN chown -R elasticsearch:elasticsearch /usr/share/elasticsearch/
-COPY elasticsearch.yml /etc/elasticsearch/
-RUN chown -R elasticsearch:elasticsearch /etc/elasticsearch/
+RUN chown -R elasticsearch:elasticsearch /var/lib/elasticsearch && \
+    chown -R elasticsearch:elasticsearch /var/log/elasticsearch && \
+    chown -R elasticsearch:elasticsearch /usr/share/elasticsearch && \
+    chown -R elasticsearch:elasticsearch /etc/elasticsearch/
 WORKDIR /usr/share/elasticsearch
 EXPOSE 9200 9300
 USER elasticsearch
 ENV PATH=$PATH:/usr/share/elasticsearch/bin
 CMD ["elasticsearch"]
 ```
-- соберите docker-образ и сделайте `push` в ваш docker.io репозиторий:  
-```
-user@user-pc:~/elastic$ docker build -t esi:01 .
-Sending build context to Docker daemon  47.62kB
-Step 1/18 : FROM centos:7
- ---> eeb6ee3f44bd
-Step 2/18 : MAINTAINER Oleg_Pavlov
- ---> Using cache
- ---> 9451869baf64
-....................
-Removing intermediate container c7541d4d91e0
- ---> 1871497e0bf9
-Successfully built 1871497e0bf9
-Successfully tagged esi:01
-```
-```
-user@user-pc:~/elastic$ docker tag 1871497e0bf9 pavlovob/netology_es:01
-user@user-pc:~/elastic$ docker login -u pavlovob
-Password: 
-WARNING! Your password will be stored unencrypted in /home/user/.docker/config.json.
-Configure a credential helper to remove this warning. See
-https://docs.docker.com/engine/reference/commandline/login/#credentials-store
-
-Login Succeeded
-
-```
+ссылка на образ в репозитории dockerhub:
 
 [Ссылка на образ](https://hub.docker.com/repository/docker/pavlovob/netology_elastic65)
+
+ответ elasticsearch на запрос пути / в json виде:
+
+![image](https://user-images.githubusercontent.com/22905019/160901532-2a5fbfbe-cddc-4f67-abcb-182e26964991.png)
+
 
 - запустите контейнер из получившегося образа и выполните запрос пути `/` c хост-машины:  
 ![image](https://user-images.githubusercontent.com/22905019/160659686-f5c08db5-ad8f-4eb9-9996-8cabeb07d6d0.png)  
