@@ -105,7 +105,7 @@ CMD ["elasticsearch"]
 
 ```
 user@user-pc:~/Elasticsearch$ docker exec -it es6 /bin/bash
-[elasticsearch@19ae49030d5e elasticsearch]$ sudo mkdir /usr/share/elasticsearch/snapshots
+[elasticsearch@3e58a67ff06c elasticsearch]$ sudo mkdir /usr/share/elasticsearch/snapshots
 ```
 
 Используя API [зарегистрируйте](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshots-register-repository.html#snapshots-register-repository) 
