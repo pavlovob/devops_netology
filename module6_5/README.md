@@ -104,7 +104,8 @@ CMD ["elasticsearch"]
 Создайте директорию `{путь до корневой директории с elasticsearch в образе}/snapshots`.
 
 ```
-sudo mkdir /usr/share/elasticsearch/snapshots
+user@user-pc:~/Elasticsearch$ docker exec -it es6 /bin/bash
+[elasticsearch@19ae49030d5e elasticsearch]$ sudo mkdir /usr/share/elasticsearch/snapshots
 ```
 
 Используя API [зарегистрируйте](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshots-register-repository.html#snapshots-register-repository) 
