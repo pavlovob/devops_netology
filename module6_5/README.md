@@ -36,6 +36,12 @@ CMD ["elasticsearch"]
 
 добавьте в elasticsearch 3 индекса, в соответствии со таблицей:
 
+| Имя | Количество реплик | Количество шард |
+|-----|-------------------|-----------------|
+| ind-1| 0 | 1 |
+| ind-2 | 1 | 2 |
+| ind-3 | 2 | 4 |
+
 ```
 [elasticsearch@3e58a67ff06c elasticsearch]$ curl -X PUT "localhost:9200/ind-1?pretty" -H 'Content-Type: application/json' -d'
 > {
