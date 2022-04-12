@@ -103,12 +103,20 @@ CMD ["elasticsearch"]
 ## Задача 3
 Создайте директорию `{путь до корневой директории с elasticsearch в образе}/snapshots`.
 
+```
+sudo mkdir /usr/share/elasticsearch/snapshots
+```
+
 Используя API [зарегистрируйте](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshots-register-repository.html#snapshots-register-repository) 
 данную директорию как `snapshot repository` c именем `netology_backup`.
 
 **Приведите в ответе** запрос API и результат вызова API для создания репозитория.
 
+![image](https://user-images.githubusercontent.com/22905019/163004774-1e0f7440-4125-4ce3-af29-56f0802b5778.png)
+
 Создайте индекс `test` с 0 реплик и 1 шардом и **приведите в ответе** список индексов.
+
+
 
 [Создайте `snapshot`](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshots-take-snapshot.html) 
 состояния кластера `elasticsearch`.
