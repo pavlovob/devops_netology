@@ -24,7 +24,7 @@ CMD ["elasticsearch"]
 ```
 ссылка на образ в репозитории dockerhub:
 
-
+[Образ на Dockerhub](https://hub.docker.com/r/pavlovob/esi)
 
 ответ elasticsearch на запрос пути / в json виде:
 
