@@ -116,20 +116,25 @@ sudo mkdir /usr/share/elasticsearch/snapshots
 
 Создайте индекс `test` с 0 реплик и 1 шардом и **приведите в ответе** список индексов.
 
+![image](https://user-images.githubusercontent.com/22905019/163006180-eba02b00-299e-4966-ac81-461e4a0f13a5.png)
 
+![image](https://user-images.githubusercontent.com/22905019/163006402-216d5c44-41fc-4752-bc18-327c0431a1c5.png)
 
 [Создайте `snapshot`](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshots-take-snapshot.html) 
 состояния кластера `elasticsearch`.
 
 **Приведите в ответе** список файлов в директории со `snapshot`ами.
 
+![image](https://user-images.githubusercontent.com/22905019/163007446-7dbfa824-dce3-4cfd-9571-44b6062c1838.png)
+
 Удалите индекс `test` и создайте индекс `test-2`. **Приведите в ответе** список индексов.
 
-[Восстановите](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshots-restore-snapshot.html) состояние
+![image](https://user-images.githubusercontent.com/22905019/163008257-2f259b03-04b8-4af7-a9b3-e1017ca03f30.png)
+
+[Восстановите] состояние
 кластера `elasticsearch` из `snapshot`, созданного ранее. 
 
 **Приведите в ответе** запрос к API восстановления и итоговый список индексов.
 
-Подсказки:
-- возможно вам понадобится доработать `elasticsearch.yml` в части директивы `path.repo` и перезапустить `elasticsearch`
-  
+![image](https://user-images.githubusercontent.com/22905019/163009121-53f59358-28da-45bc-97de-7480900e0a85.png)
+
