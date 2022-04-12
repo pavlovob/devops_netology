@@ -27,6 +27,7 @@ CMD ["elasticsearch"]
 
 
 ответ elasticsearch на запрос пути / в json виде:
+
 ![image](https://user-images.githubusercontent.com/22905019/163001487-6f555fac-27e2-4a16-8b52-72ab91a66165.png)
 
 ![image](https://user-images.githubusercontent.com/22905019/160901532-2a5fbfbe-cddc-4f67-abcb-182e26964991.png)
