@@ -137,5 +137,8 @@ user@user-pc:~/Elasticsearch$ docker exec -it es6 /bin/bash
 
 **Приведите в ответе** запрос к API восстановления и итоговый список индексов.
 
-![image](https://user-images.githubusercontent.com/22905019/163009121-53f59358-28da-45bc-97de-7480900e0a85.png)
+![image](https://user-images.githubusercontent.com/22905019/163010395-c3c7c2cf-1d51-42e3-9096-0969ecb27760.png)
+
+![image](https://user-images.githubusercontent.com/22905019/163010741-567db360-5482-4bc5-8139-76d33b643d6f.png)
+
 
