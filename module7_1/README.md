@@ -41,7 +41,10 @@
 В виде результата этой задачи приложите вывод `--version` двух версий терраформа доступных на вашем компьютере 
 или виртуальной машине.
 
-![Ссылка на Terraform 0.12 версии (бинарный)](https://releases.hashicorp.com/terraform/0.12.0/terraform_0.12.0_linux_amd64.zip)
+Ссылка на Terraform 0.12 версии (бинарный):
+```
+https://releases.hashicorp.com/terraform/0.12.0/terraform_0.12.0_linux_amd64.zip
+```
 
 ![image](https://user-images.githubusercontent.com/22905019/163857594-42a0ebff-7be8-442b-86cd-5b676ab4c3a5.png)
 
