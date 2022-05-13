@@ -4,3 +4,10 @@
 
 ![image](https://user-images.githubusercontent.com/22905019/168240049-eac25d6c-2256-441a-bc18-5084e482e0a5.png)
 
+![image](https://user-images.githubusercontent.com/22905019/168248097-5555675f-d62e-4763-a961-741227b9bb19.png)
+
+![image](https://user-images.githubusercontent.com/22905019/168248290-912411c3-e123-4764-8dd1-a07c7568b63d.png)
+
+СХемы приложены.
+
+
