@@ -26,3 +26,37 @@ This XML file does not appear to have any style information associated with it. 
 </versioning>
 </metadata>
 ~~~
+
+Maven:
+
+![image](https://user-images.githubusercontent.com/22905019/168546477-20a1b6c6-2553-42d2-b95f-56cd26898daf.png)
+
+![image](https://user-images.githubusercontent.com/22905019/168546662-3151b5cf-e643-4177-adc6-2b3bd07f532d.png)
+
+pom.xml:
+
+~~~
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+ 
+  <groupId>com.netology.app</groupId>
+  <artifactId>simple-app</artifactId>
+  <version>1.0-SNAPSHOT</version>
+   <repositories>
+    <repository>
+      <id>my-repo</id>
+      <name>maven-public</name>
+      <url>http://localhost:8081/repository/maven-public/</url>
+    </repository>
+  </repositories>
+  <dependencies>
+      <groupId>netology</groupId>
+      <artifactId>java</artifactId>
+      <version>8_282</version>
+      <classifier>distrib</classifier>
+      <type>tar.gz</type>
+    </dependency> -->
+  </dependencies>
+</project>
+~~~
