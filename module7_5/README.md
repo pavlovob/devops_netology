@@ -67,7 +67,7 @@ import (
 )
 
 func main() {
-	fmt.Print("Numbers from range 1-100 devided by 3 gives 0 reminder:", "\n", ": ")
+	fmt.Print("Numbers from range 1-100 devided by 3 gives 0 reminder:", "\n")
 	for i := 1; i <= 100; i++ {
 		if i%3 == 0 {
 			fmt.Print(i, " ")
